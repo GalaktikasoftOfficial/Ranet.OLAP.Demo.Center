@@ -1,0 +1,4 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>The example demonstrates the capabilities of parsing and formatting MDX query.</Run>
+</Paragraph></Section>

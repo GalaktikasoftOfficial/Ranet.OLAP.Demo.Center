@@ -1,0 +1,6 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the capability of using the data writeback option in the editing mode of the pivot grid. It is possible to edit data only for the cubes that have Writeback Partition.</Run>
+<Run>The area with cells available for editing is marked with a light yellow background; the modified cells are marked with a blue background. There are two available modes: the automatic update mode (the data is refreshed after each change) and the delayed one (the changes are stored in the system cash and are applied by the command from the user).</Run>
+<Run>The update script should be implemented to define the rules of writing data back to the cube. It is of extreme importance in order to avoid default value allocation able to put the server down in case of using large dimensions.</Run>
+</Paragraph></Section>

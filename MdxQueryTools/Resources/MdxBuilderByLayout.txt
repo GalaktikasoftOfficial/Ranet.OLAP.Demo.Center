@@ -1,0 +1,5 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>The example demonstrates the capabilities to generate MDX queries based on the templates formed in C# code.</Run>
+<Run>In the template, it is possible to define sets of members or tuples to be included into axes of columns and strings of the multidimensional query. The axes can utilize various hierarchies and their levels from the cube metadata; it is also possible to create sets of dimension members or tuples. If required, custom calculations and filters can be created. Based on the template, a multidimensional expression (MDX query) is generated to access the multidimensional data.</Run>
+</Paragraph></Section>

@@ -1,0 +1,6 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the capabilities of the pivot grid custom style designer. The default cell style is hardcoded but can be modified through this designer. It is possible to set various conditions for using particular styles and their combinations.</Run>
+<Run>The demo shows basic styles: custom background, icons, using microdiagrams.</Run>
+<Run>The title of the style should include the hierarchy name of the used member or [Measures] for measures.</Run>
+</Paragraph></Section>

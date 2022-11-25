@@ -1,0 +1,5 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates how to connect the gauge control to the data source that returns the result of executing the MDX query. The data source defines the target value and the actual one, as well as the scale intervals.</Run>
+<Run>For clarity, this example shows the MDX query data right in the pivot grid.</Run>
+</Paragraph></Section>

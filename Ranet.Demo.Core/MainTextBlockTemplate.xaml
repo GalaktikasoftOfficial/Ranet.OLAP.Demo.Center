@@ -1,0 +1,28 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:zm="http://schemas.zaaml.com/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+	<SolidColorBrush x:Key="FallBackForeground" Color="Black"/>
+	<FontFamily x:Key="FallBackFontFamily">Portable User Interface</FontFamily>
+	<system:Double x:Key="FallBackFontSize">11</system:Double>
+	<FontWeight x:Key="FallBackFontWeight">Normal</FontWeight>
+	<FontStretch x:Key="FallBackFontStretch">Normal</FontStretch>
+	<FontStyle x:Key="FallBackFontStyle">Normal</FontStyle>
+
+	<Style x:Key="MainTextBlock" TargetType="TextBlock">
+		<Style.BasedOn>
+			<zm:NativeStyle>
+				<zm:Style TargetType="TextBlock">
+					<zm:Setter Property="Foreground" Value="{zm:ThemeResource Keyword=ApplicationForegroundBrush}" />
+					<zm:Setter Property="FontFamily" Value="{zm:ThemeResource Keyword=ApplicationFontFamily}" />
+					<zm:Setter Property="FontSize" Value="{zm:ThemeResource Keyword=ApplicationFontSize}" />
+					<zm:Setter Property="FontWeight" Value="{zm:ThemeResource Keyword=ApplicationFontWeight}" />
+					<zm:Setter Property="FontStretch" Value="{zm:ThemeResource Keyword=ApplicationFontStretch}" />
+					<zm:Setter Property="FontStyle" Value="{zm:ThemeResource Keyword=ApplicationFontStyle}" />
+				</zm:Style>
+			</zm:NativeStyle>
+		</Style.BasedOn>
+
+	</Style>
+</ResourceDictionary>

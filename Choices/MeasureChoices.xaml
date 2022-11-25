@@ -1,0 +1,66 @@
+﻿<core:DemoControl x:Class="Choices.MeasureChoices"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  mc:Ignorable="d"
+                  xmlns:core="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+                  xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
+                  xmlns:zm="http://schemas.zaaml.com/xaml"
+                  Loaded="MeasureChoices_OnLoaded">
+
+    <core:DemoControl.Resources>       
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </core:DemoControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <!-- Choice Measures -->
+        <StackPanel Grid.Row="0"  Margin="0,0,0,6" >
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Selected Measures:" Style="{StaticResource MainTextBlock}" />
+            <rl:MeasureChoicePopUp x:Name="MeasureChoiceControl" ApplySelectionEvent="measureChoiceControl_ApplySelectionEvent" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Margin="2,2,2,0" HorizontalAlignment="Left"
+                                                   VerticalAlignment="Center" Text="MDX Expression (Selected Measures Result):"
+                                                   Style="{StaticResource MainTextBlock}" />
+                <TextBox Grid.Row="1" Margin="2,0,2,0" HorizontalAlignment="Stretch"
+                                                 VerticalAlignment="Stretch" x:Name="SelectedSetMeasure"
+                                                 IsReadOnly="True" TextWrapping="Wrap" />
+            </Grid>
+        </StackPanel>
+        <zm:NativeGridSplitter Grid.Row="0" Height="4" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Visibility="Visible" />
+        <rl:UpdateablePivotGridControl Grid.Row="1" x:Name="PivotGridControl" Margin="0,10,0,0"  />
+    </Grid>
+    <core:DemoControl.Options>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Row="0">
+                <TextBlock Text="Milti select:" HorizontalAlignment="Left" Height="24" Margin="0,4,0,0"/>
+                <CheckBox x:Name="ckbMultiSelect" IsChecked="True" />
+            </StackPanel>
+            <Button Name="ApplyOptionsButton" Grid.Row="1" Click="ApplyOptionsButton_OnClickButton" HorizontalContentAlignment="Center" Width="Auto" VerticalContentAlignment="Center" Margin="0,10,0,0">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Image Source="/Ranet.Olap;component/Controls/Images/Initialize.png" Width="16" Height="16" />
+                        <TextBlock Margin="4,0,0,0" Text="Apply Options" Style="{StaticResource MainTextBlock}" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+    </core:DemoControl.Options>
+
+</core:DemoControl>

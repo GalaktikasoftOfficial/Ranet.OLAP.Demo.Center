@@ -1,0 +1,6 @@
+<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the capabilities of setting the pivot grid properties programmatically. The options include main parameters that influence the appearance and the behavior of the pivot grid from the end user point of view.</Run>
+<Run>After changing the setup, click the "Apply Options" button to apply changes.</Run>
+<Run>The MDX query itself can be changed in the dynamic pivot grid designer that is available via the "Replace Query" button.</Run>
+</Paragraph></Section>

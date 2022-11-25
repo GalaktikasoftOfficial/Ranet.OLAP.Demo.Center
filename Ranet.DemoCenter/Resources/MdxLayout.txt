@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MdxLayoutWrapper xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>00000000-0000-0000-0000-000000000000</Id>
+  <LayoutName />
+  <CubeName>Adventure Works</CubeName>
+  <SubCubeGlobal />
+  <HasChanges>None</HasChanges>
+  <MDXQuery>SELECT
+  NON EMPTY VISUALTOTALS
+  ( HIERARCHIZE ( HIERARCHIZE ( [Large Resellers] ) )
+  , '* - Total**'
+  )
+  DIMENSION PROPERTIES PARENT_UNIQUE_NAME , HIERARCHY_UNIQUE_NAME , CUSTOM_ROLLUP , UNARY_OPERATOR , KEY0 ON 0
+, NON EMPTY HIERARCHIZE
+  ( CrossJoin
+    ( HIERARCHIZE
+      ( [Product].[Product Categories].Levels ( 0 ).Members
+      )
+    , HIERARCHIZE ( [Date].[Calendar].Levels ( 0 ).Members )
+    )
+  )
+  DIMENSION PROPERTIES PARENT_UNIQUE_NAME , HIERARCHY_UNIQUE_NAME , CUSTOM_ROLLUP , UNARY_OPERATOR , KEY0 ON 1
+FROM [Adventure Works]
+WHERE [Measures].[Internet Sales Amount]
+CELL PROPERTIES BACK_COLOR , CELL_ORDINAL , FORE_COLOR , FONT_NAME , FONT_SIZE , FONT_FLAGS , FORMAT_STRING , VALUE , FORMATTED_VALUE , UPDATEABLE , ACTION_TYPE</MDXQuery>
+  <MDXQueryState />
+  <DesignerSetting>
+    <IsUsed>false</IsUsed>
+    <SubsetCount>0</SubsetCount>
+    <UseVisualTotals>true</UseVisualTotals>
+    <GenerateCustomCalculated>false</GenerateCustomCalculated>
+    <HideEmptyColumns>true</HideEmptyColumns>
+    <HideEmptyRows>true</HideEmptyRows>
+    <IncludeAllMembers>false</IncludeAllMembers>
+    <LoadQueryState>false</LoadQueryState>
+    <WriteBackSetting>
+      <CalculateMode>Manually</CalculateMode>
+      <ValueAllocate>DivideNumber</ValueAllocate>
+      <MethodAllocation>Equal</MethodAllocation>
+      <IsAutoGenerateUpdateScript>true</IsAutoGenerateUpdateScript>
+    </WriteBackSetting>
+    <IncludeCustomCalculationsInDrillDown>false</IncludeCustomCalculationsInDrillDown>
+    <QueryBuilderKind>Default</QueryBuilderKind>
+  </DesignerSetting>
+  <Filters />
+  <Rows>
+    <AreaItemWrapper xsi:type="Hierarchy_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties>
+        <PropertyInfo>
+          <Name>DIMENSION_CAPTION</Name>
+          <Value xsi:type="xsd:string">Product</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>CUBE_CAPTION</Name>
+          <Value xsi:type="xsd:string">Adventure Works</Value>
+        </PropertyInfo>
+      </CustomProperties>
+      <Caption>Product Categories</Caption>
+      <CompositeFilter>
+        <IsUsed>false</IsUsed>
+        <MembersFilter>
+          <IsUsed>false</IsUsed>
+          <IsModified>true</IsModified>
+          <SelectedInfo />
+          <FilterSet />
+        </MembersFilter>
+        <Filters />
+      </CompositeFilter>
+      <UniqueName>[Product].[Product Categories]</UniqueName>
+      <HierarchyOrigin>UserHierarchy</HierarchyOrigin>
+    </AreaItemWrapper>
+    <AreaItemWrapper xsi:type="Hierarchy_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties>
+        <PropertyInfo>
+          <Name>DIMENSION_CAPTION</Name>
+          <Value xsi:type="xsd:string">Date</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>CUBE_CAPTION</Name>
+          <Value xsi:type="xsd:string">Adventure Works</Value>
+        </PropertyInfo>
+      </CustomProperties>
+      <Caption>Date.Calendar</Caption>
+      <CompositeFilter>
+        <IsUsed>false</IsUsed>
+        <MembersFilter>
+          <IsUsed>false</IsUsed>
+          <IsModified>true</IsModified>
+          <SelectedInfo />
+          <FilterSet />
+        </MembersFilter>
+        <Filters />
+      </CompositeFilter>
+      <UniqueName>[Date].[Calendar]</UniqueName>
+      <HierarchyOrigin>UserHierarchy</HierarchyOrigin>
+    </AreaItemWrapper>
+  </Rows>
+  <Columns>
+    <AreaItemWrapper xsi:type="NamedSet_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties>
+        <PropertyInfo>
+          <Name>CUBE_CAPTION</Name>
+          <Value xsi:type="xsd:string">Adventure Works</Value>
+        </PropertyInfo>
+      </CustomProperties>
+      <Caption>Large Resellers</Caption>
+      <Name>Large Resellers</Name>
+      <Expression>Exists
+    (
+       [Reseller].[Reseller].[Reseller].Members,
+       [Reseller].[Number of Employees].[Number of Employees].[81 - 100]
+    )</Expression>
+    </AreaItemWrapper>
+  </Columns>
+  <Data>
+    <AreaItemWrapper xsi:type="Measure_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties />
+      <Caption>Internet Sales Amount</Caption>
+      <UniqueName>[Measures].[Internet Sales Amount]</UniqueName>
+    </AreaItemWrapper>
+  </Data>
+  <CalculatedMembers />
+  <CalculatedNamedSets />
+  <CustomCellsConditions />
+  <SortOptions>
+    <Columns_SortByProperty>
+      <KeyValuePairXMLOfStringSortByPropertyDescriptor>
+        <Key>[Measures]</Key>
+        <Value>
+          <Type>None</Type>
+          <Property>Caption</Property>
+        </Value>
+      </KeyValuePairXMLOfStringSortByPropertyDescriptor>
+      <KeyValuePairXMLOfStringSortByPropertyDescriptor>
+        <Key>[Reseller].[Reseller]</Key>
+        <Value>
+          <Type>None</Type>
+          <Property>Caption</Property>
+        </Value>
+      </KeyValuePairXMLOfStringSortByPropertyDescriptor>
+    </Columns_SortByProperty>
+    <Rows_SortByProperty>
+      <KeyValuePairXMLOfStringSortByPropertyDescriptor>
+        <Key>[Product].[Product Categories]</Key>
+        <Value>
+          <Type>None</Type>
+          <Property>Caption</Property>
+        </Value>
+      </KeyValuePairXMLOfStringSortByPropertyDescriptor>
+      <KeyValuePairXMLOfStringSortByPropertyDescriptor>
+        <Key>[Date].[Calendar]</Key>
+        <Value>
+          <Type>None</Type>
+          <Property>Caption</Property>
+        </Value>
+      </KeyValuePairXMLOfStringSortByPropertyDescriptor>
+    </Rows_SortByProperty>
+  </SortOptions>
+  <ExtensionSettings>
+    <Mode>OnlyPivotGrid</Mode>
+  </ExtensionSettings>
+  <GridProportions />
+</MdxLayoutWrapper>

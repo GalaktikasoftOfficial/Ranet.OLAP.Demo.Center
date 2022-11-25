@@ -1,0 +1,139 @@
+﻿<core:DemoControl xmlns:dxn="http://schemas.devexpress.com/winfx/2008/xaml/navbar"  x:Class="PivotGrid.PivotGridModule"
+                  xmlns:core="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+                  xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  mc:Ignorable="d"
+                  Loaded="PivotGridModule_OnLoaded"
+                  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" 
+                  >
+    <core:DemoControl.Resources>
+        <ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
+    </core:DemoControl.Resources>
+    <Grid>
+        <rl:UpdateablePivotGridControl  x:Name="PivotGridControl"/>
+    </Grid>
+    <core:DemoControl.Options>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="0,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="22" />
+                    <RowDefinition Height="10" />
+                    
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="22" />
+                    
+                    <RowDefinition Height="10" />
+                    
+                    <RowDefinition Height="15" />
+                    <RowDefinition Height="22" />
+
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Text="PivotGrid Options:" Style="{StaticResource MainTextBlock}" Margin="0,0,0,2" />
+                <CheckBox Grid.Row="1" Name="ckbAutoWidthColumns" IsChecked="False" Content="AutoWidth Columns" />
+                <CheckBox Grid.Row="2" Name="ckbColumnsIsInteractive" IsChecked="true" Content="Columns are interactive" />
+                <CheckBox Grid.Row="3" Name="ckbRowsIsInteractive" IsChecked="true" Content="Rows are interactive" />
+                <CheckBox Grid.Row="4" Name="ckbUseColumnsAreaHint" IsChecked="true" Content="Use Columns Area Hint" />
+                <CheckBox Grid.Row="5" Name="ckbUseRowsAreaHint" IsChecked="true" Content="Use Rows Area Hint" />
+                <CheckBox Grid.Row="6" Name="ckbUseCellsAreaHint" IsChecked="true" Content="Use Cells Area Hint" />
+                <CheckBox Grid.Row="7" Name="ckbUseCellConditionsDesigner" IsChecked="true" Content="Use Cell Conditions Designer" /> 
+                <CheckBox Grid.Row="8" Name="ckbIsUpdateable" IsChecked="false" Content="IsUpdateable" />
+                <CheckBox Grid.Row="9" Name="ckbShowMdx" IsChecked="true" Content="Is Show Mdx" />
+
+                <TextBlock Grid.Row="10" Text="Member Visualization Type:"
+                                       Style="{StaticResource MainTextBlock}" Margin="0,2,0,0" />
+                <ComboBox Grid.Row="11" Name="cbMemberVisualizationType" SelectedIndex="0">
+                    <ComboBoxItem Content="Caption" />
+                    <ComboBoxItem Content="Key" />
+                    <ComboBoxItem Content="Key and Caption" />
+                    <ComboBoxItem Content="Unique Name" />
+                </ComboBox>
+                
+                <TextBlock Grid.Row="13" Text="MembersViewMode:" Style="{StaticResource MainTextBlock}" />
+                <ComboBox Grid.Row="14" Name="cbMembersViewMode" SelectedIndex="0">
+                    <ComboBoxItem Content="Tree" />
+                    <ComboBoxItem Content="Grid" />
+                </ComboBox>
+                
+                <TextBlock Grid.Row="16" Text="Data Reorganization Type:"
+                                       Style="{StaticResource MainTextBlock}" />
+                <ComboBox Grid.Row="17" Name="cbDataReorganizationType" SelectedIndex="2">
+                    <ComboBoxItem Content="None" />
+                    <ComboBoxItem Content="Merge Neighbors" />
+                    <ComboBoxItem Content="Link To Parent" />
+                </ComboBox>
+                
+                <TextBlock Grid.Row="19" Text="Default Member Action:" Style="{StaticResource MainTextBlock}" />
+                <ComboBox Grid.Row="20" Name="cbDefaultMemberAction" SelectedIndex="1">
+                    <ComboBoxItem Content="None" />
+                    <ComboBoxItem Content="Drill Down" />
+                    <ComboBoxItem Content="Expand/Collapse" />
+                    <ComboBoxItem Content="Sort By Property" />
+                </ComboBox>
+                
+                <TextBlock Grid.Row="22" Text="Column Title Click Behavior:" Style="{StaticResource MainTextBlock}" />
+                <ComboBox Grid.Row="23" Name="cbColumnTitleClickBehavior" SelectedIndex="3">
+                    <ComboBoxItem Content="None" />
+                    <ComboBoxItem Content="Drill Down" />
+                    <ComboBoxItem Content="Expand/Collapse" />
+                    <ComboBoxItem Content="Sort" />
+                </ComboBox>
+                
+                <TextBlock Grid.Row="25" Text="DrillDown Mode:" Style="{StaticResource MainTextBlock}" />
+                <ComboBox Grid.Row="26" Name="cbDrillDownMode" SelectedIndex="2">
+                    <ComboBoxItem Content="By CurrentTuple Show Self" />
+                    <ComboBoxItem Content="By Single Dimension Show Self" />
+                    <ComboBoxItem Content="By Current Tuple Hide Self" />
+                    <ComboBoxItem Content="By Single Dimension Hide Self" />
+                </ComboBox>
+            </Grid >
+
+            <Button Name="QueryDesignerButton" Grid.Row="1" Click="QueryDesignerButton_OnClickButton" HorizontalContentAlignment="Center" Width="Auto" VerticalContentAlignment="Center" Margin="0,5">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Margin="4,0,0,0" Text="Replace Query" Style="{StaticResource MainTextBlock}" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+            
+            <Button Name="ApplyOptionsButton" Grid.Row="2" Click="ApplyOptionsButton_OnClickButton" HorizontalContentAlignment="Center" Width="Auto" VerticalContentAlignment="Center" Margin="0,5">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <Image Source="/Ranet.Olap;component/Controls/Images/Initialize.png" Width="16" Height="16" />
+                        <TextBlock Margin="4,0,0,0" Text="Apply Options" Style="{StaticResource MainTextBlock}" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+        </Grid>
+    </core:DemoControl.Options>
+</core:DemoControl>

@@ -1,0 +1,55 @@
+﻿<core:DemoControl x:Class="ServerExplorer.ServerExplorerModule"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
+                  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"                        
+                  mc:Ignorable="d"
+                  xmlns:core="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+                  xmlns:zm="http://schemas.zaaml.com/xaml"
+				  Loaded="ServerExplorerControl_OnLoaded">
+    <core:DemoControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </core:DemoControl.Resources>
+    <Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="27" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+		<zm:NativeGridSplitter Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Width="5" VerticalAlignment="Stretch" HorizontalAlignment="Left" Visibility="Visible" />
+        <zm:NativeGridSplitter Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Width="5" VerticalAlignment="Stretch" HorizontalAlignment="Right" Visibility="Visible" />
+
+        <rl:ServerExplorerCtrl x:Name="serverExplorerControl" Grid.Row="0" Grid.RowSpan="2" Grid.Column="0"/>
+
+		<Button Name="btnResetMetaFilters" Margin="5,0,5,0" Content="Reset all Metafilters" Height="25" Grid.Column="1" Grid.Row="0" IsEnabled="False"/>
+		<rl:MetaFilterDataGrid x:Name="metafilterDataGrid" Grid.Column="1" Grid.Row="1" Margin="5" />
+
+		<Button Content="Initialize with metadata filters" Grid.Column="2" Grid.Row="0" Height="25" IsEnabled="False" Name="btnInitFiltredServerExplorer"/>
+		<rl:ServerExplorerCtrl x:Name="serverExplorerControlFiltred" Grid.Row="1" Grid.Column="2" />
+    </Grid>
+	<core:DemoControl.Options>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Grid.Row="0" Text="Metadata Filter Type:" Style="{StaticResource MainTextBlock}" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+			<ComboBox Name="cbMetaFilterType" Grid.Row="1" SelectedIndex="0">
+				<ComboBox.Items>
+					<ComboBoxItem Content="Exclude"></ComboBoxItem>
+					<ComboBoxItem Content="Include"></ComboBoxItem>
+				</ComboBox.Items>
+			</ComboBox>
+		</Grid>
+	</core:DemoControl.Options>
+</core:DemoControl>

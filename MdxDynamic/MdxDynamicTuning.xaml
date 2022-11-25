@@ -1,0 +1,366 @@
+﻿<core:DemoControl x:Class="MdxDynamic.MdxDynamicTuning"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:core="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+             xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
+             xmlns:zm="http://schemas.zaaml.com/xaml"
+             xmlns:demo="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+             xmlns:ui="clr-namespace:Ranet.Olap.UI;assembly=Ranet.Olap.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Loaded="MdxDynamicByTuple_OnLoaded">
+    <core:DemoControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary>
+                    <ui:LocalizationHolder x:Key="LocHolder" />
+                </ResourceDictionary>
+                <ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </core:DemoControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,2,0,2">
+
+            <Button Margin="2,0,2,0" x:Name="cdmMetadataArea" Width="22" Padding="0" Click="cdmMetadataArea_Click" >
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/Menu.png" Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="{Binding Path=Localization.MdxDesigner_ShowMetadata_ToolTip, Source={StaticResource LocHolder}}" TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Margin="2,0,2,0" x:Name="cdmDesigner" Width="22" Padding="0" Click="cdmDesigner_Click" >
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/DesignPanel.png" Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="{Binding Path=Localization.MdxDesigner_ShowQueryDesigner_ToolTip, Source={StaticResource LocHolder}}" TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Margin="2,0,2,0" x:Name="cdmActiveFilters" 
+                                        Width="22" Padding="0" Click="cdmActiveFilters_Click">
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/ActiveFilters.png" Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="{Binding Path=Localization.MdxDesigner_ShowFilters_ToolTip, Source={StaticResource LocHolder}}" TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+			<zm:SplitButton Icon="/Ranet.Olap.UI;component/Controls/Images/Show.png"
+											Content="{Binding Path=Localization.Show, Source={StaticResource LocHolder}}"
+											Height="22" Margin="2,0,0,0">
+
+                <zm:SplitButton.PopupControl>
+                    <zm:PopupMenu>
+                        <zm:CheckBoxMenuItem
+                                                Header="{Binding Path=Localization.MdxDesigner_MdxQuery, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/MDX.png" Click="MdxQueryArea_OnClick"/>
+                        <zm:CheckBoxMenuItem
+                                                Header="{Binding Path=Localization.PivotGrid_HeaderText, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/PivotGridHeader.png" Click="HeaderGrid_OnClick"/>
+                        <zm:CheckBoxMenuItem
+                                                Header="{Binding Path=Localization.PivotGrid_FooterText, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/PivotGridFooter.png" Click="FooterGrid_OnClick"/>
+                    </zm:PopupMenu>
+                </zm:SplitButton.PopupControl>
+            </zm:SplitButton>
+
+            <!-- rl:RanetToolBarSplitter / -->
+
+            <Button Margin="2,0,2,0" x:Name="cdmCustomCalc"
+                                         Width="22" Padding="0" Click="CallCommand_CustomCalculationsClick">
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/OLAP/CustomCalculations.png"
+                                           Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.MdxDesigner_CalculatedMemberEditor_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Margin="2,0,2,0" x:Name="cdmCellsStyle"
+                                         Width="22" Padding="0" Click="CallCommand_CellsStyleDesignerClick" >
+                <Image
+                                        Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/CellConditionsDesigner.png"
+                                        Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_CellsConditionsDesignerButton_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <!-- rl:RanetToolBarSplitter / -->
+
+            <Button Margin="2,0,2,0" x:Name="cdmReset"
+                                         Width="22" Padding="0" Click="CallCommand_ResetDesignerClick" >
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/Reset.png" Width="16"
+                                           Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.MdxDesigner_ResetAll_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <Button Margin="2,0,2,0" x:Name="cdmExecute"
+                                         Width="22" Padding="0" Click="CallCommand_ExecuteQueryClick" >
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/Run.png" Width="16"
+                                           Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.MdxDesigner_ExecuteQuery_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Margin="2,0,2,0" x:Name="cdmRefresh"
+                                         Width="22" Padding="0" Click="CallCommand_RefreshClick">
+                <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/Refresh.png"
+                                           Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_RefreshButton_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <!-- rl:RanetToolBarSplitter / -->
+
+            <Button Margin="2,0,2,0" x:Name="cdmNavigateToBegin"
+                                        Width="22" Padding="0" Loaded="CdmNavigateToBegin_OnLoaded">
+                <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/ToBegin.png"
+                                           Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_ToBeginButton_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Margin="2,0,2,0" x:Name="cdmNavigateBack"
+                                         Width="22" Padding="0" Loaded="CdmNavigateBack_OnLoaded">
+                <Button.Content>
+                    <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/Back.png"
+                                               Width="16" Height="16" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_BackButton_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Margin="2,0,2,0" x:Name="cdmNavigateForward"
+                                         Width="22" Padding="0" Loaded="CdmNavigateForward_OnLoaded">
+                <Button.Content>
+                    <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/Forward.png"
+                                               Width="16" Height="16" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_ForwardButton_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+            <Button Margin="2,0,2,0" x:Name="cdmNavigateToEnd"
+                                         Width="22" Padding="0" Loaded="CdmNavigateToEnd_OnLoaded">
+                <Button.Content>
+                    <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/ToEnd.png"
+                                               Width="16" Height="16" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_ToEndButton_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <!-- rl:RanetToolBarSplitter / -->
+
+            <Button Margin="2,0,2,0" x:Name="cmdEmptyColumns" 
+                                        Width="22" Padding="0" Click="CmdEmptyColumns_OnClick">
+                <Image
+                                        Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/HideEmptyColumns.png"
+                                        Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_HideEmptyColumnsButton_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <Button Margin="2,0,2,0" x:Name="cmdEmptyRows"  Width="22"
+                                        Padding="0" Click="CmdEmptyRows_OnClick">
+                <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/HideEmptyRows.png"
+                                           Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_HideEmptyRowsButton_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <Button Margin="2,0,2,0" x:Name="cmdRoateAxes"
+                                        Width="22" Padding="0" Click="CallCommand_RotateAxesClick">
+                <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/RotateAxes.png"
+                                           Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_RotateAxesButton_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <Button Margin="2,0,2,0" x:Name="cmdGoToFocusedCell" 
+                                        Width="22" Padding="0" Click="CmdGoToFocusedCell_OnClick">
+                <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/ToFocused.png"
+                                           Width="16" Height="16" />
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_GoToFocusedCellButton_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <rl:ZoomingToolBarControl Margin="2,0,2,0" x:Name="cmdZoom" ValueChanged="CmdZoom_OnValueChanged"
+                                                                     MaxWidth="47" >
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.PivotGrid_ZoomingControl_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </rl:ZoomingToolBarControl>
+
+            <Button Margin="2,0,2,0" x:Name="cmdImporLayout"
+                                         Width="22" Padding="0" Click="CallCommand_OpenReportClick">
+                <Button.Content>
+                    <Image Source="/Ranet.Olap.UI;component/Controls/Images/FileImport.png"
+                                               Width="16" Height="16" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <TextBlock
+                                            Text="{Binding Path=Localization.MdxDesigner_ImportLayout_ToolTip, Source={StaticResource LocHolder}}"
+                                            TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+
+            <Button Margin="2,0,2,0" x:Name="cmdExportLayout" Width="22" Padding="0" Click="CallCommand_SaveReportClick">
+                <Button.Content>
+                    <Image Source="/Ranet.Olap.UI;component/Controls/Images/FileExport.png" Width="16" Height="16" />
+                </Button.Content>
+                <ToolTipService.ToolTip>
+                    <TextBlock Text="{Binding Path=Localization.MdxDesigner_ExportLayout_ToolTip, Source={StaticResource LocHolder}}" TextWrapping="Wrap" />
+                </ToolTipService.ToolTip>
+            </Button>
+
+			<zm:SplitButton Height="22" 
+			                Icon="/Ranet.Olap.UI;component/Controls/Images/Export.png" 
+											Content="{Binding Path=Localization.Command_Export_Group, Source={StaticResource LocHolder}}">
+
+                <zm:SplitButton.PopupControl>
+                    <zm:PopupMenu>
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.Command_Export_ToExcel, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/ExportToEXCEL.png"
+                                                Click="CallCommand_ExcelExportClick" />
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.Command_Export_ToXML, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/ExportToXML.png"
+                                                Click="CallCommand_XMLExportClick" />
+                        <zm:MenuSeparator />
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.Command_Export_ToExcelPivotTableLayout, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/PivotTable.png"
+                                                Click="CallCommand_ExportLayoutToExcelClick" />
+                    </zm:PopupMenu>
+                </zm:SplitButton.PopupControl>
+            </zm:SplitButton>
+
+            <zm:SplitButton Height="22" Margin="5,0,0,0"
+														Icon="/Ranet.Olap.UI;component/Controls/Images/Options.png"
+														Content="{Binding Path=Localization.CellConditionControl_AppearanceItem, Source={StaticResource LocHolder}}">
+                <zm:SplitButton.PopupControl>
+                    <zm:PopupMenu>
+                        <zm:CheckBoxMenuItem
+                                                Header="{Binding Path=Localization.MdxDesigner_RunQueryAutomatic_Header, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/AutoRun.png"
+                                                IsChecked="True"
+                                                Click="RunQueryAutomatic_OnClick" />
+                        <zm:CheckBoxMenuItem
+                                                Header="{Binding Path=Localization.PivotGrid_HideHintsButton_Header, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/CloseHint.png"
+                                                Click="HideHints_OnClick" />
+                        <zm:MenuSeparator />
+                        <zm:CheckBoxMenuItem
+                                                Header="{Binding Path=Localization.PivotGrid_NormalizeSize_Header, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/NormalizeSize.png"
+                                                Click="Normalize_OnClick" />
+                        <zm:MenuSeparator />
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.MdxDesigner_SettingDesigner_Header, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/MDXDesignerSetting.png"
+                                                Click="CallCommand_SettingDesignerClick" />
+                    </zm:PopupMenu>
+                </zm:SplitButton.PopupControl>
+            </zm:SplitButton>
+
+            <zm:SplitButton Height="22" Margin="5,0,0,0"
+                            Content="{Binding Path=Localization.Actions, Source={StaticResource LocHolder}}"
+                            Icon="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/ActionNode.png" >
+
+                <zm:SplitButton.PopupControl>
+                    <zm:PopupMenu>
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.PivotGrid_RestoreDefaultSize_Header, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/RestoreDefaultSize.png"
+                                                Click="Restore_OnClick" />
+                    </zm:PopupMenu>
+                </zm:SplitButton.PopupControl>
+            </zm:SplitButton>
+
+            <!-- <zm:SplitButton Height="22" Margin="5,0,0,0">
+                <zm:SplitButton.Content>
+                    <zm:ImageTextContent Text="{Binding Path=Localization.DockExtension_Chart, Source={StaticResource LocHolder}}"
+                                            ImageSource="/Ranet.Olap.UI;component/Controls/Images/Chart.png" />
+                </zm:SplitButton.Content>
+                <zm:SplitButton.DropDownControl>
+                    <zm:DropDownMenu>
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.DockExtension_ChartNo, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/ChartNo.png"
+                                                Click="CallCommand_ChangeDockOnlyPivotGrid" />
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.DockExtension_ChartaboveGrid, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/ChartAbove.png"
+                                                Click="CallCommand_ChangeDockTop" />
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.DockExtension_ChartbelowGrid, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/ChartBelow.png"
+                                                Click="CallCommand_ChangeDockBottom" />
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.DockExtension_CharttorightofGrid, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/ChartRight.png"
+                                                Click="CallCommand_ChangeDockRight"/>
+
+
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.DockExtension_CharttoleftofGrid, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/ChartLeft.png"
+                                                Click="CallCommand_ChangeDockLeft" />
+
+
+                        <zm:MenuItem
+                                                Header="{Binding Path=Localization.DockExtension_ChartOnly, Source={StaticResource LocHolder}}"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/ChartOnly.png"
+                                                Click="CallCommand_ChangeDockOnlyExtension"/>
+
+
+                    </zm:DropDownMenu>
+                </zm:SplitButton.DropDownControl>
+            </zm:SplitButton> -->
+
+        </StackPanel>
+
+        <rl:DynamicPivotGridControl x:Name="pivotMdxDynamicControl" Grid.Row="1" />
+    </Grid>
+</core:DemoControl>

@@ -1,0 +1,5 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates how to view the inner structure of the cube metadata.</Run>
+<Run>First, click the needed cube in the tree to get the list of its dimensions. Then, click the desired dimension to get the list of its hierarchies. Finally, click the hierarchy to get the list of its levels.</Run>
+</Paragraph></Section>

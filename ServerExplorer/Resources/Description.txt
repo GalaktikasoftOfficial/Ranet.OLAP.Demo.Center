@@ -1,0 +1,7 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run> This sample demonstrates the control used to display the cube metadata. The tree shows the cube metadata grouped by types: KPIs, Measures, Calculations, Sets, and Dimensions.</Run>
+<Run>Depending on its logical structure, the data can be grouped by folders inside the type. For example, hierarchies are grouped by various types (Parent-Child Hierarchy, User Hierarchy, Attribute Hierarchy) inside the dimension; measures are also grouped, etc. It is possible to view not only metadata, but the dimension members as well.</Run>
+<LineBreak />
+<Run>The sample also showcases the capability of filtering the cube metadata. Simply drag-and-drop the needed parts of metadata into the table, and the filter for this data is created automatically. To apply the filter to data, initialize the second control with the metadata tree.</Run>
+</Paragraph></Section>

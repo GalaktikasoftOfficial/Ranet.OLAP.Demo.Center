@@ -1,0 +1,48 @@
+﻿<UserControl x:Class="Ranet.Demo.Core.ConfigurationWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:zm="http://schemas.zaaml.com/xaml"
+			 xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
+    mc:Ignorable="d">
+	<Grid Background="{zm:ThemeResource Keyword=ApplicationBackgroundBrush}"
+        UseLayoutRounding="True">
+		<rl:BusyFrame Visibility="Collapsed" x:Name="CubeValBusyFrame" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+		<Grid Margin="10,10,10,30">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto"/>
+				<ColumnDefinition Width="*"/>
+				<ColumnDefinition Width="Auto"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+			</Grid.RowDefinitions>
+			<!--Connection-->
+			<zm:Label  Content="Connection" Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}" Grid.Row="0" Grid.Column="0" Margin="0,5,10,5"/>
+            <ComboBox x:Name="ComboListConnections" DisplayMemberPath="ConnectionID" SelectionChanged="ComboListConnections_OnSelectionChanged" Grid.Row="0" Grid.Column="1" Margin="0,5,0,5"  Height="22"/>
+			<Button Click="SetUpConnections_OnClick" BorderThickness="0" Grid.Row="0" Grid.Column="2" Margin="2,5,5,5" UseLayoutRounding="True">
+				<Button.Content>
+					<Image Source="Icons/edit.png"/>
+				</Button.Content>
+			</Button>
+			<!--Cube-->
+			<zm:Label Grid.Row="1" Grid.Column="0" Margin="0,5,10,5" Content="Cube" Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}"/>			
+			<rl:CubeChoicePopUp Grid.Row="1" Grid.Column="1" x:Name="CubeChoice"/>
+			<!--Theme-->
+			<zm:Label  Content="Theme" Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}" Grid.Row="2" Grid.Column="0" Margin="0,5,10,5"/>
+			<ComboBox x:Name="ThemesComboBox" DisplayMemberPath="Name" Grid.Row="2" Grid.Column="1" Margin="0,5" Height="22" />
+			<!--Language-->
+			<zm:Label  Content="Language" Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}" Grid.Row="3" Grid.Column="0" Margin="0,5,10,5"/>
+			<ComboBox x:Name="LanguagesCombo" Grid.Row="3" Grid.Column="1" Margin="0,5" Height="22"/>
+			<Image Source="Icons/Refresh.png" Height="16" Width="16" Grid.Row="3" Grid.Column="2" Margin="2,5,5,5" x:Name="RefreshImage"/>
+			<!--Timeout-->
+			<zm:Label  Content="Timeout" Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}" Grid.Row="4" Grid.Column="0" Margin="0,5,10,5"/>
+			<TextBox x:Name="TimeOutAppDemo" Grid.Row="4" Grid.Column="1" Margin="0,5,0,5" Text="00:05:00"/>
+		</Grid>
+	</Grid>
+</UserControl>

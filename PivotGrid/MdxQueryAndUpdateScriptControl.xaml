@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="PivotGrid.MdxQueryAndUpdateScriptControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
+             xmlns:zm="http://schemas.zaaml.com/xaml">
+    
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <zm:TabViewControl x:Name="TabControl" SelectionChanged="TabControl_OnSelectionChanged">
+            <zm:TabViewItem Header="Mdx Query" x:Name="TabItemDesigner">
+                <rl:PivotMdxDesignerControl x:Name="Designer"/>
+            </zm:TabViewItem>
+            <zm:TabViewItem Header="Update Script" x:Name="TabItemScript">
+                <TextBox x:Name="Script"/>
+            </zm:TabViewItem>
+        </zm:TabViewControl>
+
+    </Grid>
+</UserControl>

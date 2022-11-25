@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfLevelFilter_FilterWrapper xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LevelFilter_FilterWrapper>
+    <IsUsed>false</IsUsed>
+    <Filters>
+      <FilterWrapperBase xsi:type="Top_FilterWrapper">
+        <IsUsed>false</IsUsed>
+        <FilterType>Top</FilterType>
+        <Count>10</Count>
+        <FilterTarget>Items</FilterTarget>
+        <MeasureUniqueName />
+      </FilterWrapperBase>
+      <FilterWrapperBase xsi:type="LogicalOperation_FilterWrapper">
+        <IsUsed>false</IsUsed>
+        <Filters>
+          <LogicalOperationItem xsi:type="LogicalOperation_FilterWrapper">
+            <IsUsed>false</IsUsed>
+            <Filters>
+              <LogicalOperationItem xsi:type="Label_FilterWrapper">
+                <IsUsed>false</IsUsed>
+                <FilterType>Equal</FilterType>
+                <Text1>asd</Text1>
+                <Text2 />
+                <LevelPropertyName>Caption</LevelPropertyName>
+              </LogicalOperationItem>
+              <LogicalOperationItem xsi:type="Value_FilterWrapper">
+                <IsUsed>false</IsUsed>
+                <FilterType>Greater</FilterType>
+                <Num1>100</Num1>
+                <Num2>1</Num2>
+                <MeasureUniqueName>[Measures].[Customer Count]</MeasureUniqueName>
+              </LogicalOperationItem>
+            </Filters>
+            <Operation>Or</Operation>
+          </LogicalOperationItem>
+        </Filters>
+        <Operation>And</Operation>
+      </FilterWrapperBase>
+    </Filters>
+  </LevelFilter_FilterWrapper>
+  <LevelFilter_FilterWrapper>
+    <IsUsed>false</IsUsed>
+    <Level>
+      <Properties>
+        <PropertyInfo>
+          <Name>CATALOG_NAME</Name>
+          <Value xsi:type="xsd:string">AdventureWorks</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>SCHEMA_NAME</Name>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>CUBE_NAME</Name>
+          <Value xsi:type="xsd:string">Adventure Works</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>DIMENSION_UNIQUE_NAME</Name>
+          <Value xsi:type="xsd:string">[Product]</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>HIERARCHY_UNIQUE_NAME</Name>
+          <Value xsi:type="xsd:string">[Product].[Product Categories]</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_NAME</Name>
+          <Value xsi:type="xsd:string">(All)</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_UNIQUE_NAME</Name>
+          <Value xsi:type="xsd:string">[Product].[Product Categories].[(All)]</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_GUID</Name>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_CAPTION</Name>
+          <Value xsi:type="xsd:string">(All)</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_NUMBER</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_CARDINALITY</Name>
+          <Value xsi:type="xsd:int">1</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_TYPE</Name>
+          <Value xsi:type="xsd:int">1</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>DESCRIPTION</Name>
+          <Value xsi:type="xsd:string"></Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>CUSTOM_ROLLUP_SETTINGS</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_UNIQUE_SETTINGS</Name>
+          <Value xsi:type="xsd:int">0</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_IS_VISIBLE</Name>
+          <Value xsi:type="xsd:boolean">true</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_ORDERING_PROPERTY</Name>
+          <Value xsi:type="xsd:string">(All)</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_DBTYPE</Name>
+          <Value xsi:type="xsd:int">3</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_MASTER_UNIQUE_NAME</Name>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_NAME_SQL_COLUMN_NAME</Name>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_KEY_SQL_COLUMN_NAME</Name>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_UNIQUE_NAME_SQL_COLUMN_NAME</Name>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_ATTRIBUTE_HIERARCHY_NAME</Name>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_KEY_CARDINALITY</Name>
+          <Value xsi:type="xsd:int">1</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>LEVEL_ORIGIN</Name>
+          <Value xsi:type="xsd:int">1</Value>
+        </PropertyInfo>
+      </Properties>
+      <CustomProperties>
+        <PropertyInfo>
+          <Name>HIERARCHY_CAPTION</Name>
+          <Value xsi:type="xsd:string">Product Categories</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>DIMENSION_CAPTION</Name>
+          <Value xsi:type="xsd:string">Product</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>CUBE_CAPTION</Name>
+          <Value xsi:type="xsd:string">Adventure Works</Value>
+        </PropertyInfo>
+      </CustomProperties>
+      <IsLoaded>true</IsLoaded>
+      <IsVisible>true</IsVisible>
+      <Caption>(All)</Caption>
+      <Description />
+      <Name>(All)</Name>
+      <ParentCubeId>Adventure Works</ParentCubeId>
+      <ParentDimensionId>[Product]</ParentDimensionId>
+      <ParentHirerachyId>[Product].[Product Categories]</ParentHirerachyId>
+      <UniqueName>[Product].[Product Categories].[(All)]</UniqueName>
+      <LevelNumber>0</LevelNumber>
+      <LevelType>1</LevelType>
+      <MemberCount>1</MemberCount>
+      <LevelProperties>
+        <LevelPropertyInfo>
+          <Caption>KEY0</Caption>
+          <Description />
+          <Name>KEY0</Name>
+          <ParentLevelId>[Product].[Product Categories].[(All)]</ParentLevelId>
+          <PropertyType>5</PropertyType>
+          <IsSystem>true</IsSystem>
+          <IsVisible>true</IsVisible>
+          <DataType>3</DataType>
+        </LevelPropertyInfo>
+        <LevelPropertyInfo>
+          <Caption>NAME</Caption>
+          <Description />
+          <Name>NAME</Name>
+          <ParentLevelId>[Product].[Product Categories].[(All)]</ParentLevelId>
+          <PropertyType>5</PropertyType>
+          <IsSystem>true</IsSystem>
+          <IsVisible>true</IsVisible>
+          <DataType>130</DataType>
+        </LevelPropertyInfo>
+        <LevelPropertyInfo>
+          <Caption>MEMBER_VALUE</Caption>
+          <Description />
+          <Name>MEMBER_VALUE</Name>
+          <ParentLevelId>[Product].[Product Categories].[(All)]</ParentLevelId>
+          <PropertyType>5</PropertyType>
+          <IsSystem>true</IsSystem>
+          <IsVisible>true</IsVisible>
+          <DataType>130</DataType>
+        </LevelPropertyInfo>
+      </LevelProperties>
+    </Level>
+    <Filters>
+      <FilterWrapperBase xsi:type="Top_FilterWrapper">
+        <IsUsed>false</IsUsed>
+        <FilterType>Top</FilterType>
+        <Count>10</Count>
+        <FilterTarget>Items</FilterTarget>
+        <MeasureUniqueName />
+      </FilterWrapperBase>
+    </Filters>
+  </LevelFilter_FilterWrapper>
+</ArrayOfLevelFilter_FilterWrapper>

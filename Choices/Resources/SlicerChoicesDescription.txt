@@ -1,0 +1,7 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the slicer. It is a control for selecting the dimension members as a table of buttons. It allows filtering data in realtime. The slicer operates data of a given level in the hierarchy of the dimension members.</Run>
+<Run>The member is chosen via clicking the button. The second click on the button cancels the choice. Visual options (the scale, button size, etc.) can be customized in the local menu.</Run>
+<Run>The result of this operation is an MDX set of members.</Run>
+<Run>The sample demonstrates the usage of several slicers passed to the MDX query as parameters. The result of executing the query can be seen in the pivot grid area.</Run>
+</Paragraph></Section>

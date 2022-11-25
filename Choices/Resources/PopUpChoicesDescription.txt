@@ -1,0 +1,5 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the controls used to select metadata from the cube. They are tied together for simplicity; the initialization parameters for each following control are formed automatically. First, select the cube. Then choose the dimension from the dimension list of the previously selected cube. Finally, pick the hierarchy inside the dimension and its particular level. The controls are implemented in the form of popup windows.</Run>
+<Run>In fact, each of the controls can be used separately, depending on the parameters applied for its initialization.</Run>
+</Paragraph></Section>

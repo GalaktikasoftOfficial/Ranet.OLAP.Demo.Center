@@ -1,0 +1,63 @@
+﻿<zm:AppWindow x:Class="Ranet.DemoCenter.ApplicationWindow"
+							xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+							xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+							xmlns:zm="http://schemas.zaaml.com/xaml"
+							xmlns:net="clr-namespace:Ranet.DemoCenter"
+              xmlns:core="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+              x:Name="appWindow"
+							Icon="RanetOlap.ico"
+							Title="Demo - Ranet OLAP for WPF"
+			  			MinWidth="700"
+							Padding="5"
+							MinHeight="500">
+	<zm:AppWindow.HeaderPresenterStyle>
+		<Style TargetType="zm:WindowHeaderPresenter">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="zm:WindowHeaderPresenter">
+						<Grid Background="Transparent" Margin="{Binding Path=Padding, ElementName=appWindow}">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="*"/>
+								<ColumnDefinition Width="Auto"/>
+							</Grid.ColumnDefinitions>
+
+							<net:DemoHeaderControl TreeViewDemo="{Binding ElementName=treeViewDemo, BindsDirectlyToSource=True}" />
+
+							<zm:WindowButtonsPresenter Grid.Column="1"
+																				 Margin="{zm:ThemeResource Key=Metro.Window.Header.Buttons.Margin}"
+							                           VerticalAlignment="Top"
+							                           zm:DockPanel.Dock="Right"
+							                           ButtonsPresenterTemplate="{TemplateBinding ButtonsPresenterTemplate}"
+							                           ButtonStyle="{TemplateBinding ButtonStyle}">
+
+                <!--  Minimize Button  -->
+                <zm:WindowHeaderButton zm:Extension.Skin="{zm:TemplateSkinBinding SkinPath=Buttons.Minimize}"
+                                       Kind="Minimize" />
+
+                <!--  Maximize Button  -->
+                <zm:WindowHeaderButton zm:Extension.Skin="{zm:TemplateSkinBinding SkinPath=Buttons.Maximize}"
+                                       Kind="Maximize" />
+
+                <!--  Restore Button  -->
+                <zm:WindowHeaderButton zm:Extension.Skin="{zm:TemplateSkinBinding SkinPath=Buttons.Restore}"
+                                       Kind="Restore" />
+
+                <!--  Close Button  -->
+                <zm:WindowHeaderButton zm:Extension.Skin="{zm:TemplateSkinBinding SkinPath=Buttons.Close}"
+                                       Kind="Close" />
+
+							</zm:WindowButtonsPresenter>
+							
+						</Grid>
+
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</zm:AppWindow.HeaderPresenterStyle>
+
+    <core:TreeViewDemo x:Name="treeViewDemo" 
+                             UseLayoutRounding="True"
+                             SnapsToDevicePixels="True"/>
+
+</zm:AppWindow>

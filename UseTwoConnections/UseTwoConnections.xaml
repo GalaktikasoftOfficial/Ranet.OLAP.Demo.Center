@@ -1,0 +1,69 @@
+﻿<core:DemoControl x:Class="Integrations.UseTwoConnections"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  xmlns:core="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+                  xmlns:zm="http://schemas.zaaml.com/xaml"
+                  xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
+                  mc:Ignorable="d"
+				  Loaded="UseTwoConnectionsModule_OnLoaded">
+	<core:DemoControl.Resources>
+		<ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
+    </core:DemoControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" x:Name="FirstPivotGridRow" />
+            <RowDefinition Height="*" x:Name="SecondPivotGridRow" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <!--First Connection -->
+        <rl:DynamicPivotGridControl x:Name="FirstPivotGrid" Grid.Row="0" Grid.ColumnSpan="2" Margin="0,0,0,6" />
+		<!--Second Connection-->
+        <rl:DynamicPivotGridControl x:Name="SecondPivotGrid" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,6,0,0" />
+        <zm:NativeGridSplitter x:Name="HorizontSplitter" Grid.Row="0" Grid.ColumnSpan="2" Height="4" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Visibility="Visible" />
+    </Grid>
+	<core:DemoControl.Options>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="23" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="23" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="40" />
+            </Grid.RowDefinitions>
+			<!--First Connection-->
+            <TextBlock Grid.Row="0" Text="The First Connection" VerticalAlignment="Center" HorizontalAlignment="Left"  Style="{StaticResource MainTextBlock}" Margin="0,10,0,0"/>
+			<TextBlock Grid.Row="1" Text="Connection:" VerticalAlignment="Center" Style="{StaticResource MainTextBlock}"/>
+			<ComboBox x:Name="ComboBoxConnection1" Grid.Row="2" DisplayMemberPath="ConnectionID" SelectionChanged="ComboBoxFirstConnection_OnSelectionChanged"/>
+			<TextBlock Grid.Row="3" Text="Cube:" VerticalAlignment="Center" Style="{StaticResource MainTextBlock}" />
+			<rl:CubeChoicePopUp Grid.Row="4" x:Name="CubeChoiceFirstCon" CubeSelected="PopUpCubeChoice1Conn_OnCubeSelected"/>
+
+			<!--Second Connection-->
+			<TextBlock Grid.Row="5" Text="The Second Connection" VerticalAlignment="Center" HorizontalAlignment="Left" Style="{StaticResource MainTextBlock}" Margin="0,15,0,0"/>
+			<TextBlock Grid.Row="6" Text="Connection:" VerticalAlignment="Center" Style="{StaticResource MainTextBlock}"/>
+			<ComboBox x:Name="ComboBoxConnection2" Grid.Row="7" DisplayMemberPath="ConnectionID" SelectionChanged="ComboBoxSecondConnection_OnSelectionChanged"/>
+			<TextBlock Grid.Row="8" Text="Cube:" VerticalAlignment="Center" Style="{StaticResource MainTextBlock}" />
+			<rl:CubeChoicePopUp Grid.Row="9" x:Name="CubeChoiceSecondCon" CubeSelected="PopUpCubeChoice2Conn_OnCubeSelected" />
+
+            <!-- StackPanel Orientation="Vertical" Grid.Row="10" Margin="0,20,0,0" >
+                <zm:Label Content="View Mode:" HorizontalAlignment="Left"/>
+                <RadioButton x:Name="ViewAllControls" Content="All Controls" Margin="10,2,0,0" IsChecked="True" Checked="ViewModeControls_OnChecked" />
+                <RadioButton x:Name="ViewFirstControl" Content="First Control" Margin="10,2,0,0" Checked="ViewModeControls_OnChecked"  />
+                <RadioButton x:Name="ViewSecondControl" Content="Second Control" Margin="10,2,0,0" Checked="ViewModeControls_OnChecked" />
+            </ -->
+        </Grid>
+	</core:DemoControl.Options>
+</core:DemoControl>

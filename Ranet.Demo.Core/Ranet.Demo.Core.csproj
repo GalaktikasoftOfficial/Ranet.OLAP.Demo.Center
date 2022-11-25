@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <Import Project="$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.props" Condition="Exists('$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.props')" />
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>library</OutputType>
+	  <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <UseWpf>true</UseWpf>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Ranet.Olap.Core" Version="4.1.0-alpha219" />
+    <PackageReference Include="Ranet.Olap.Mdx" Version="4.1.0-alpha219" />
+    <PackageReference Include="Ranet.Olap.Themes" Version="4.1.0-alpha219" />
+    <PackageReference Include="Ranet.Olap.Service" Version="4.1.0-alpha219" />
+    <PackageReference Include="Ranet.Olap.Service.Adomd" Version="4.1.0-alpha219" />
+    <PackageReference Include="Ranet.Olap.UI" Version="4.1.0-alpha219" />
+    <PackageReference Include="Zaaml.UI" Version="0.2.1-alpha.23" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icons\New.png" />
+    <Resource Include="Icons\Remove.png" />
+    <Resource Include="Icons\code.png" />
+    <Resource Include="Icons\preview-orange.png" />
+    <Resource Include="Icons\edit.png" />
+    <Resource Include="Icons\Refresh.png" />
+    <Resource Include="Icons\Show.png" />
+    <Resource Include="Icons\Download_32x32.png" />
+  </ItemGroup>
+  <Import Project="$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.targets" Condition="Exists('$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.targets')" />
+</Project>

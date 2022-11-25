@@ -1,0 +1,6 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This demo shows the controls used to pick the cube from the multidimensional data source.</Run>
+<Run>The first control is implemented as a popup window; the data is represented as a tree. To pick an element, click it and press OK.</Run>
+<Run>The second control is implemented as a drop-down list. The element is picked with a mouse click; the search is also available.</Run>
+</Paragraph></Section>

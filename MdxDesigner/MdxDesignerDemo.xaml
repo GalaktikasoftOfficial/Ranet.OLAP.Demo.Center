@@ -1,0 +1,45 @@
+﻿<core:DemoControl x:Class="MdxDesigner.MdxDesignerDemo"                  
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"   
+                  mc:Ignorable="d" 
+                  xmlns:core="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+                  xmlns:mdxDesigner="clr-namespace:MdxDesigner"
+
+                  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch"
+				  Loaded="MdxDesignerDemo_OnLoaded"
+                   >
+	<core:DemoControl.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</core:DemoControl.Resources>
+	<Grid>
+		<mdxDesigner:MyDesigner x:Name="pivotMdxDesignerControl" Margin="0,4,0,0" />
+	</Grid>
+	<core:DemoControl.Options>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="40"/>
+				<RowDefinition Height="40"/>
+				<RowDefinition Height="40"/>
+				<RowDefinition Height="50"/>
+				<RowDefinition Height="40"/>
+				<RowDefinition Height="40"/>
+				<RowDefinition Height="40"/>
+				<RowDefinition Height="40"/>
+			</Grid.RowDefinitions>
+			<Button Grid.Row="0" Margin="0,5" Content="Show MDX Query"  Click="ShowMdxQuery_OnClick" />
+			<Button Grid.Row="1" Margin="0,5" Content="Show Update Script"  Click="ShowUpdateScript_OnClick" />
+			<Button Grid.Row="2" Margin="0,5" Content="Show Report Layout"  Click="ShowLayout_OnClick" />
+			<TextBlock Grid.Row="3" Margin="0,5" Text="Examples initialization PivotTable..." Style="{StaticResource MainTextBlock}" VerticalAlignment="Bottom" />
+			<Button Grid.Row="4" Margin="0,5" Content="Init on the layout of the report" Click="InitBased_XmlFileLayout_OnClick" />
+			<Button Grid.Row="5" Margin="0,5" Content="Init on the Wrapper Object" Click="InitBased_ObjectWrapperLayout_OnClick" />
+			<Button Grid.Row="6" Margin="0,5" Content="Init with Metadata and Data Filters" Click="InitBased_MetaAndDataFilter_OnClick" />
+			<Button Grid.Row="7" Margin="0,5" Content="Init with Filters based on Tuples" Click="InitBased_TubleFilter_OnClick" />
+		</Grid>
+	</core:DemoControl.Options>
+</core:DemoControl>

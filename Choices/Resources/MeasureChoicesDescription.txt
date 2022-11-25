@@ -1,0 +1,7 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the control for picking measures from the cube metadata. The control is implemented as a popup window. If a set of measures is sent as a parameter, only the measures from this set are available for selection.</Run>
+<Run>The control can be used for both single and multiple choice mode; the mode is chosen during the initialization of the control.</Run>
+<Run>The result of this operation is a set of measures (in terms of MDX).</Run>
+<Run>In this demo, the result of the measures selection is integrated into the MDX query as a parameter. The result of running the query is shown in the pivot grid area.</Run>
+</Paragraph></Section>

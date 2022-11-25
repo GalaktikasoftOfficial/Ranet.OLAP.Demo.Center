@@ -1,0 +1,7 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This demo shows the control used to select a range of values from the members of a dimension. The control is implemented as a dual slider, and handles data from inner levels of hierarchies inside the cube dimensions. The scope of values is determined by the positions of the first member and the last one.</Run>
+<Run>The borders are easily regulated via moving the edges of the slider. There are scale and zoom controls in the context menu. Zoom allows to adjust the border values of the scale according to the chosen range.</Run>
+<Run>The result of this operation is a set of values in the form of a range (in terms of the MDX language).</Run>
+<Run>This demo shows the usage of several sliders for different levels of the time dimension. The results of the operation are integrated into the MDX query as parameters. The result of processing the query appears in the pivot grid area.</Run>
+</Paragraph></Section>

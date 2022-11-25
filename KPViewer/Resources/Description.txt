@@ -1,0 +1,6 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the control used to display KPI (Key Performance Indicators) data, specified in the cube, in the pivot grid. KPI include several values: Target KPI value (Goal), Actual KPI value (Value), KPI Status, and KPI change trend in time (Trend).</Run>
+<Run>To display a KPI, drag-and-drop it from the cube metadata area into the pivot grid. In order to reflect all KPI, use the Show All button located in the toolbar.</Run>
+<Run>If needed, the filters can be applied to data, columns that display data, and their grouping.</Run>
+</Paragraph></Section>

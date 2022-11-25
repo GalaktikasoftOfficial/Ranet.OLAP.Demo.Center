@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MdxLayoutWrapper xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>accf213d-d310-4180-a5d4-0c2e6d547ec0</Id>
+  <LayoutName>AW_Sparkline_2007year</LayoutName>
+  <CubeName>Adventure Works</CubeName>
+  <SubCubeGlobal />
+  <HasChanges>None</HasChanges>
+  <MDXQuery>WITH 
+MEMBER [Internet Gross Profit Dynamic] AS IIF(
+NonEmpty([Set All Month], ([Date].[Calendar].CurrentMember,[Measures].[Internet Gross Profit])).Count &gt; 0,
+Generate([Set All Month], ([Date].[Calendar].CurrentMember,[Measures].[Internet Gross Profit]), " | ") ,
+NULL), FORMAT_STRING = "Sparkline" 
+MEMBER [Internet Sales Amount Dynamic] AS IIF(
+NonEmpty([Set All Month], ([Date].[Calendar].CurrentMember,[Measures].[Internet Sales Amount])).Count &gt; 0,
+Generate([Set All Month], ([Date].[Calendar].CurrentMember,[Measures].[Internet Sales Amount]), " | ")  ,
+NULL), FORMAT_STRING = "Sparkline" 
+SET [Set All Month] AS {Descendants ([Date].[Calendar].[All Periods], [Date].[Calendar].[Month])} 
+SELECT 
+NON EMPTY HIERARCHIZE({[Internet Sales Amount Dynamic], [Measures].[Internet Sales Amount], [Measures].[Internet Gross Profit], [Internet Gross Profit Dynamic]}) DIMENSION PROPERTIES PARENT_UNIQUE_NAME, HIERARCHY_UNIQUE_NAME, CUSTOM_ROLLUP, UNARY_OPERATOR, KEY0 ON 0, 
+NON EMPTY HIERARCHIZE([Customer].[Customer Geography].[Country].Members) DIMENSION PROPERTIES PARENT_UNIQUE_NAME, HIERARCHY_UNIQUE_NAME, CUSTOM_ROLLUP, UNARY_OPERATOR, KEY0 ON 1 
+FROM 
+(SELECT ({{[Date].[Calendar].[Calendar Year].&amp;[2007]}}) on COLUMNS FROM [Adventure Works]) 
+WHERE ({{[Date].[Calendar].[Calendar Year].&amp;[2007]}}) 
+CELL PROPERTIES BACK_COLOR, CELL_ORDINAL, FORE_COLOR, FONT_NAME, FONT_SIZE, FONT_FLAGS, FORMAT_STRING, VALUE, FORMATTED_VALUE, UPDATEABLE, ACTION_TYPE
+</MDXQuery>
+  <MDXQueryState>WITH
+  MEMBER [Internet Gross Profit Dynamic] AS
+    IIF
+    ( ( NonEmpty
+        ( [Set All Month]
+        , ( [Date].[Calendar].CurrentMember
+          , [Measures].[Internet Gross Profit]
+          )
+        ).Count
+      &gt;
+        0
+      )
+    , Generate
+      ( [Set All Month]
+      , ( [Date].[Calendar].CurrentMember
+        , [Measures].[Internet Gross Profit]
+        )
+      , " | "
+      )
+    , NULL
+    )
+    , FORMAT_STRING = "Sparkline"
+  MEMBER [Internet Sales Amount Dynamic] AS
+    IIF
+    ( ( NonEmpty
+        ( [Set All Month]
+        , ( [Date].[Calendar].CurrentMember
+          , [Measures].[Internet Sales Amount]
+          )
+        ).Count
+      &gt;
+        0
+      )
+    , Generate
+      ( [Set All Month]
+      , ( [Date].[Calendar].CurrentMember
+        , [Measures].[Internet Sales Amount]
+        )
+      , " | "
+      )
+    , NULL
+    )
+    , FORMAT_STRING = "Sparkline"
+  SET [Set All Month] AS
+    { Descendants
+      ( [Date].[Calendar].[All Periods]
+      , [Date].[Calendar].[Month]
+      )
+    }
+SELECT
+  NON EMPTY HIERARCHIZE
+  ( { [Internet Sales Amount Dynamic]
+    , [Measures].[Internet Sales Amount]
+    , [Measures].[Internet Gross Profit]
+    , [Internet Gross Profit Dynamic]
+    }
+  )
+  DIMENSION PROPERTIES PARENT_UNIQUE_NAME , HIERARCHY_UNIQUE_NAME , CUSTOM_ROLLUP , UNARY_OPERATOR , KEY0 ON 0
+, NON EMPTY HIERARCHIZE ( [Customer].[Customer Geography].[Country].Members )
+  DIMENSION PROPERTIES PARENT_UNIQUE_NAME , HIERARCHY_UNIQUE_NAME , CUSTOM_ROLLUP , UNARY_OPERATOR , KEY0 ON 1
+FROM
+( SELECT
+    { { [Date].[Calendar].[Calendar Year].&amp;[2007] } } ON COLUMNS
+  FROM [Adventure Works]
+)
+WHERE { { [Date].[Calendar].[Calendar Year].&amp;[2007] } }
+CELL PROPERTIES BACK_COLOR , CELL_ORDINAL , FORE_COLOR , FONT_NAME , FONT_SIZE , FONT_FLAGS , FORMAT_STRING , VALUE , FORMATTED_VALUE , UPDATEABLE , ACTION_TYPE</MDXQueryState>
+  <DesignerSetting>
+    <IsUsed>false</IsUsed>
+    <SubsetCount>0</SubsetCount>
+    <UseVisualTotals>false</UseVisualTotals>
+    <GenerateCustomCalculated>false</GenerateCustomCalculated>
+    <HideEmptyColumns>true</HideEmptyColumns>
+    <HideEmptyRows>true</HideEmptyRows>
+    <IncludeAllMembers>false</IncludeAllMembers>
+    <LoadQueryState>true</LoadQueryState>
+    <WriteBackSetting>
+      <CalculateMode>Manually</CalculateMode>
+      <ValueAllocate>DivideNumber</ValueAllocate>
+      <MethodAllocation>Equal</MethodAllocation>
+    </WriteBackSetting>
+  </DesignerSetting>
+  <Filters>
+    <AreaItemWrapper xsi:type="Level_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties>
+        <PropertyInfo>
+          <Name>HIERARCHY_CAPTION</Name>
+          <Value xsi:type="xsd:string">Date.Calendar</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>DIMENSION_CAPTION</Name>
+          <Value xsi:type="xsd:string">Date</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>CUBE_CAPTION</Name>
+          <Value xsi:type="xsd:string">Adventure Works</Value>
+        </PropertyInfo>
+      </CustomProperties>
+      <Caption>Calendar Year</Caption>
+      <CompositeFilter>
+        <IsUsed>true</IsUsed>
+        <TreeFilterSettings>
+          <Items />
+        </TreeFilterSettings>
+        <MembersFilter>
+          <IsUsed>true</IsUsed>
+          <IsModified>true</IsModified>
+          <SelectedInfo>
+            <MemberChoiceSettings>
+              <Info>
+                <Caption>CY 2007</Caption>
+                <ChildCount>2</ChildCount>
+                <Description />
+                <DrilledDown>false</DrilledDown>
+                <HierarchyUniqueName>[Date].[Calendar]</HierarchyUniqueName>
+                <LevelDepth>1</LevelDepth>
+                <LevelName>[Date].[Calendar].[Calendar Year]</LevelName>
+                <Name>[Date].[Calendar].[Calendar Year].&amp;[2007]</Name>
+                <ParentSameAsPrevious>true</ParentSameAsPrevious>
+                <UniqueName>[Date].[Calendar].[Calendar Year].&amp;[2007]</UniqueName>
+              </Info>
+              <SelectState>Selected_Self</SelectState>
+              <Children />
+            </MemberChoiceSettings>
+          </SelectedInfo>
+          <FilterSet>{[Date].[Calendar].[Calendar Year].&amp;[2007]}</FilterSet>
+        </MembersFilter>
+        <Filter>
+          <IsUsed>false</IsUsed>
+          <CurrentFilter>LabelFilter</CurrentFilter>
+          <TopFilter>
+            <FilterType>Top</FilterType>
+            <Count>10</Count>
+            <FilterTarget>Items</FilterTarget>
+            <MeasureUniqueName>[Measures].[Average Rate]</MeasureUniqueName>
+          </TopFilter>
+          <ValueFilter>
+            <FilterType>Equal</FilterType>
+            <Num1>0</Num1>
+            <Num2>1</Num2>
+            <MeasureUniqueName>[Measures].[Average Rate]</MeasureUniqueName>
+          </ValueFilter>
+          <LabelFilter>
+            <FilterType>Equal</FilterType>
+            <Text1 />
+            <Text2 />
+            <LevelPropertyName>Caption</LevelPropertyName>
+          </LabelFilter>
+        </Filter>
+        <HeadFilter>
+          <IsUsed>false</IsUsed>
+          <HeadCount>0</HeadCount>
+          <IsUsedOther>false</IsUsedOther>
+        </HeadFilter>
+      </CompositeFilter>
+      <UniqueName>[Date].[Calendar].[Calendar Year]</UniqueName>
+      <HierarchyUniqueName>[Date].[Calendar]</HierarchyUniqueName>
+    </AreaItemWrapper>
+  </Filters>
+  <Rows>
+    <AreaItemWrapper xsi:type="Level_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties>
+        <PropertyInfo>
+          <Name>HIERARCHY_CAPTION</Name>
+          <Value xsi:type="xsd:string">Customer Geography</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>DIMENSION_CAPTION</Name>
+          <Value xsi:type="xsd:string">Customer</Value>
+        </PropertyInfo>
+        <PropertyInfo>
+          <Name>CUBE_CAPTION</Name>
+          <Value xsi:type="xsd:string">Adventure Works</Value>
+        </PropertyInfo>
+      </CustomProperties>
+      <Caption>Country</Caption>
+      <CompositeFilter>
+        <IsUsed>false</IsUsed>
+        <MembersFilter>
+          <IsUsed>false</IsUsed>
+          <IsModified>true</IsModified>
+          <SelectedInfo />
+          <FilterSet />
+        </MembersFilter>
+        <Filter>
+          <IsUsed>false</IsUsed>
+          <CurrentFilter>LabelFilter</CurrentFilter>
+          <TopFilter>
+            <FilterType>Top</FilterType>
+            <Count>10</Count>
+            <FilterTarget>Items</FilterTarget>
+            <MeasureUniqueName />
+          </TopFilter>
+          <ValueFilter>
+            <FilterType>Equal</FilterType>
+            <Num1>0</Num1>
+            <Num2>1</Num2>
+            <MeasureUniqueName />
+          </ValueFilter>
+          <LabelFilter>
+            <FilterType>Equal</FilterType>
+            <Text1 />
+            <Text2 />
+            <LevelPropertyName />
+          </LabelFilter>
+        </Filter>
+        <HeadFilter>
+          <IsUsed>false</IsUsed>
+          <HeadCount>100</HeadCount>
+          <IsUsedOther>false</IsUsedOther>
+        </HeadFilter>
+      </CompositeFilter>
+      <UniqueName>[Customer].[Customer Geography].[Country]</UniqueName>
+      <HierarchyUniqueName>[Customer].[Customer Geography]</HierarchyUniqueName>
+    </AreaItemWrapper>
+  </Rows>
+  <Columns>
+    <AreaItemWrapper xsi:type="Values_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties />
+      <Caption>Значения</Caption>
+    </AreaItemWrapper>
+  </Columns>
+  <Data>
+    <AreaItemWrapper xsi:type="CalculatedMember_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties />
+      <Caption>[Internet Sales Amount Dynamic]</Caption>
+      <Name>[Internet Sales Amount Dynamic]</Name>
+    </AreaItemWrapper>
+    <AreaItemWrapper xsi:type="Measure_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties />
+      <Caption>Internet Sales Amount</Caption>
+      <UniqueName>[Measures].[Internet Sales Amount]</UniqueName>
+    </AreaItemWrapper>
+    <AreaItemWrapper xsi:type="Measure_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties />
+      <Caption>Internet Gross Profit</Caption>
+      <UniqueName>[Measures].[Internet Gross Profit]</UniqueName>
+    </AreaItemWrapper>
+    <AreaItemWrapper xsi:type="CalculatedMember_AreaItemWrapper">
+      <AreaItemType>NamedSet_AreaItemWrapper</AreaItemType>
+      <CustomProperties />
+      <Caption>[Internet Gross Profit Dynamic]</Caption>
+      <Name>[Internet Gross Profit Dynamic]</Name>
+    </AreaItemWrapper>
+  </Data>
+  <CalculatedMembers>
+    <CalcMemberInfo>
+      <Name>[Internet Gross Profit Dynamic]</Name>
+      <Expression>IIF(
+NonEmpty([Set All Month], ([Date].[Calendar].CurrentMember,[Measures].[Internet Gross Profit])).Count &gt; 0,
+Generate([Set All Month], ([Date].[Calendar].CurrentMember,[Measures].[Internet Gross Profit]), " | ") ,
+NULL)</Expression>
+      <NonEmptyBehavior />
+      <FormatString>Sparkline</FormatString>
+      <BackColor>
+        <A>0</A>
+        <R>255</R>
+        <G>255</G>
+        <B>255</B>
+      </BackColor>
+      <ForeColor>
+        <A>0</A>
+        <R>255</R>
+        <G>255</G>
+        <B>255</B>
+      </ForeColor>
+    </CalcMemberInfo>
+    <CalcMemberInfo>
+      <Name>[Internet Sales Amount Dynamic]</Name>
+      <Expression>IIF(
+NonEmpty([Set All Month], ([Date].[Calendar].CurrentMember,[Measures].[Internet Sales Amount])).Count &gt; 0,
+Generate([Set All Month], ([Date].[Calendar].CurrentMember,[Measures].[Internet Sales Amount]), " | ")  ,
+NULL)</Expression>
+      <NonEmptyBehavior />
+      <FormatString>Sparkline</FormatString>
+      <BackColor>
+        <A>0</A>
+        <R>255</R>
+        <G>255</G>
+        <B>255</B>
+      </BackColor>
+      <ForeColor>
+        <A>0</A>
+        <R>255</R>
+        <G>255</G>
+        <B>255</B>
+      </ForeColor>
+    </CalcMemberInfo>
+  </CalculatedMembers>
+  <CalculatedNamedSets>
+    <CalculatedNamedSetInfo>
+      <Name>[Set All Month]</Name>
+      <Expression>Descendants ([Date].[Calendar].[All Periods], [Date].[Calendar].[Month])</Expression>
+    </CalculatedNamedSetInfo>
+  </CalculatedNamedSets>
+  <CustomCellsConditions>
+    <string>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;ccd&gt;["[Measures].[Internet Sales Amount Dynamic]",[["None",0,0,[[255,255,255,255],[255,169,169,169],[255,0,0,0],"",[false,true,false,false,false,false,false,false],[[255,255,0,0],[255,0,255,33],0,1,false,0,0]],{"__type":"SparkLineCellStyleOptions:#Ranet.Olap.Core.Common","Average":false,"ShowEndMarkers":false,"ShowLine":true,"ShowMarkers":true,"ShowMaxMarker":true,"ShowMinMarker":false,"ShowNegativeArea":false,"ShowPoints":true,"ShowPositiveArea":false,"ShowReferenceLine":false,"Type":1,"WinLoseMode":false}]]]&lt;/ccd&gt;</string>
+    <string>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;ccd&gt;["[Measures].[Internet Sales Amount]",[["Greater",100000,0,[[255,255,255,255],[255,169,169,169],[255,0,0,0],"\/Ranet.AgOlap;component\/controls\/images\/olap\/kpi\/c_green.png",[false,true,false,false,false,false,true,false],[[255,255,0,0],[255,0,255,33],0,1,false,0,0]],{"__type":"SparkLineCellStyleOptions:#Ranet.Olap.Core.Common","Average":false,"ShowEndMarkers":false,"ShowLine":true,"ShowMarkers":true,"ShowMaxMarker":true,"ShowMinMarker":false,"ShowNegativeArea":false,"ShowPoints":true,"ShowPositiveArea":false,"ShowReferenceLine":false,"Type":0,"WinLoseMode":false}]]]&lt;/ccd&gt;</string>
+    <string>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;ccd&gt;["[Measures].[Internet Gross Profit]",[["None",0,0,[[255,255,255,255],[255,169,169,169],[255,0,0,0],"",[false,true,false,false,false,false,false,true],[[255,173,216,230],[255,0,38,255],0,1,false,0,0]],{"__type":"SparkLineCellStyleOptions:#Ranet.Olap.Core.Common","Average":false,"ShowEndMarkers":false,"ShowLine":true,"ShowMarkers":true,"ShowMaxMarker":true,"ShowMinMarker":false,"ShowNegativeArea":false,"ShowPoints":true,"ShowPositiveArea":false,"ShowReferenceLine":false,"Type":0,"WinLoseMode":false}]]]&lt;/ccd&gt;</string>
+    <string>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;ccd&gt;["[Measures].[Internet Gross Profit Dynamic]",[["None",0,0,[[255,255,255,255],[255,169,169,169],[255,0,0,0],"",[false,true,false,false,false,false,false,false],[[255,255,0,0],[255,0,255,33],0,1,false,0,0]],{"__type":"SparkLineCellStyleOptions:#Ranet.Olap.Core.Common","Average":false,"ShowEndMarkers":false,"ShowLine":true,"ShowMarkers":true,"ShowMaxMarker":true,"ShowMinMarker":false,"ShowNegativeArea":false,"ShowPoints":true,"ShowPositiveArea":false,"ShowReferenceLine":false,"Type":0,"WinLoseMode":false}]]]&lt;/ccd&gt;</string>
+  </CustomCellsConditions>
+  <SortOptions>
+    <Columns_SortByProperty>
+      <KeyValuePairXMLOfStringSortByPropertyDescriptor>
+        <Key>[Measures]</Key>
+        <Value>
+          <Type>None</Type>
+          <Property>Caption</Property>
+        </Value>
+      </KeyValuePairXMLOfStringSortByPropertyDescriptor>
+    </Columns_SortByProperty>
+    <Rows_SortByProperty>
+      <KeyValuePairXMLOfStringSortByPropertyDescriptor>
+        <Key>[Customer].[Customer Geography]</Key>
+        <Value>
+          <Type>None</Type>
+          <Property>Caption</Property>
+        </Value>
+      </KeyValuePairXMLOfStringSortByPropertyDescriptor>
+    </Rows_SortByProperty>
+  </SortOptions>
+  <HeaderXamlTextGrid />
+  <FooterXamlTextGrid />
+  <ExtensionSettings>
+    <Mode>Top</Mode>
+  </ExtensionSettings>
+  <GridProportions>
+    <RowDefinitions_Height />
+    <ColumnDefinitions_Width />
+  </GridProportions>
+</MdxLayoutWrapper>

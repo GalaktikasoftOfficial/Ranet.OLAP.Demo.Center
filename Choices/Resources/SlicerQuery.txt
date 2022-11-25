@@ -1,0 +1,5 @@
+SELECT NON EMPTY HIERARCHIZE(CrossJoin(HIERARCHIZE({<%SalesReason%>}), {[Measures].[Internet Sales Amount], [Measures].[Internet Gross Profit]})) DIMENSION PROPERTIES PARENT_UNIQUE_NAME , HIERARCHY_UNIQUE_NAME , CUSTOM_ROLLUP , UNARY_OPERATOR , KEY0 ON 0 
+, NON EMPTY HIERARCHIZE(HIERARCHIZE([Customer].[Customer Geography].[Country].Members)) DIMENSION PROPERTIES PARENT_UNIQUE_NAME , HIERARCHY_UNIQUE_NAME , CUSTOM_ROLLUP , UNARY_OPERATOR , KEY0 ON 1
+FROM ( SELECT ( { <%DateCalendarYear%> }, { <%ProductCategory%> }, { <%PromotionType%> } ) ON COLUMNS FROM [Adventure Works])
+WHERE ( { <%DateCalendarYear%> }, { <%ProductCategory%> }, { <%PromotionType%> } )
+CELL PROPERTIES BACK_COLOR , CELL_ORDINAL , FORE_COLOR , FONT_NAME , FONT_SIZE , FONT_FLAGS , FORMAT_STRING , VALUE , FORMATTED_VALUE , UPDATEABLE , ACTION_TYPE

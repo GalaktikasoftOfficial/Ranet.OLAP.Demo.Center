@@ -1,0 +1,8 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the control used to pick members from the cube dimension when the choice is limited by a subcube.</Run>
+<Run>The list of available members should often be limited for a particular user due to security politics or workflow specifics. In such cases, the accessible data could be limited by using a subcube as a parameter during the initialization of the control. The subcube is sent in the form of a string with an MDX expression in it.</Run>
+<Run>First, use the first control to select the members that should be used as the limitation. You will see the amount of members used to define the subcube.</Run>
+<Run>In the second control, only the members defined by the subcube are displayed.</Run>
+<Run>The third control shows how the structure of the tree of members is formed along with the members’ states during the initialization of the control. The control gets the amount of members as a parameter.</Run>
+</Paragraph></Section>

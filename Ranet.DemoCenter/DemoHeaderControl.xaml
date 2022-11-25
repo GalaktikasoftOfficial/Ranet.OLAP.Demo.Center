@@ -1,0 +1,267 @@
+﻿<UserControl x:Class="Ranet.DemoCenter.DemoHeaderControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:zm="http://schemas.zaaml.com/xaml"
+             xmlns:demoCenter="clr-namespace:Ranet.DemoCenter"
+             xmlns:net="clr-namespace:Ranet.DemoCenter"
+             x:Name="demoHeaderControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+	<UserControl.Resources>
+		<SolidColorBrush x:Key="BackgroundBuyBtn" Color="#FFF78119"/>
+		<SolidColorBrush x:Key="BackgroundBuyBtnMouseOver" Color="#FFF5923A"/>
+		<SolidColorBrush x:Key="ForegroundMouseOver" Color="#FFF78119"/>
+
+		<zm:Style x:Key="XmBuyButtonStyle" TargetType="Button">
+			<zm:Style.Setters>
+				<zm:Setter Property="Background" Value="{StaticResource BackgroundBuyBtn}"/>
+				<zm:Setter Property="Foreground" Value="White"/>
+				<zm:Setter Property="FontSize" Value="16"/>
+				<zm:Setter Property="Template">
+					<zm:Setter.Value>
+						<ControlTemplate TargetType="Button">
+							<zm:ControlTemplateRoot x:Name="Root">
+								<Grid x:Name="Grid" Background="{TemplateBinding Background}">
+									<ContentPresenter Content="{TemplateBinding Content}" Margin="{TemplateBinding Padding}"/>
+								</Grid>
+								<zm:Extension.Triggers>
+									<zm:DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Root}"  Value="True">
+										<zm:Setter Property="Background" Value="{StaticResource BackgroundBuyBtnMouseOver}" TargetName="Grid"/>
+									</zm:DataTrigger>
+									<zm:DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=Root}"  Value="False">
+										<zm:Setter Property="Background" Value="{StaticResource BackgroundBuyBtn}" TargetName="Grid"/>
+									</zm:DataTrigger>
+								</zm:Extension.Triggers>
+							</zm:ControlTemplateRoot>
+						</ControlTemplate>
+					</zm:Setter.Value>
+				</zm:Setter>
+			</zm:Style.Setters>
+		</zm:Style>
+
+		<Style x:Key="SettingsSpanButton" TargetType="ButtonBase">
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="ButtonBase">
+						<zm:ControlTemplateRoot Background="Transparent">
+							<zm:ControlTemplateRoot.VisualStateGroups>
+								<zm:CommonVisualStateGroups Groups="CommonStates, CheckStates"/>
+							</zm:ControlTemplateRoot.VisualStateGroups>
+							<zm:Extension.Setters>
+								<zm:Setter Property="Background" VisualState="MouseOver" Value="#40AAAAAA"  />
+								<zm:Setter Property="Background" VisualState="Pressed" Value="#80AAAAAA"  />
+							</zm:Extension.Setters>
+							<ContentControl Content="{TemplateBinding Content}" Foreground="Gray" Margin="{TemplateBinding Padding}" VerticalAlignment="Center">
+								<zm:Extension.Setters>
+									<zm:Setter Property="Foreground" VisualState="MouseOver" Value="{StaticResource ForegroundMouseOver}"  />
+									<zm:Setter Property="Foreground" VisualState="Checked" Value="{StaticResource ForegroundMouseOver}"  />
+									<zm:Setter Property="Foreground" VisualState="Pressed" Value="{StaticResource ForegroundMouseOver}"  />
+								</zm:Extension.Setters>
+							</ContentControl>
+						</zm:ControlTemplateRoot>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+
+		<Style x:Key="HeaderTextStyle" TargetType="TextBlock">
+			<Setter Property="FontSize" Value="22"/>
+		</Style>
+
+		<Style x:Key="TitleTextStyle" TargetType="TextBlock">
+			<Setter Property="FontSize" Value="20"/>
+		</Style>
+
+		<Style x:Key="DescriptionTextStyle" TargetType="TextBlock">
+			<Setter Property="FontSize" Value="16"/>
+		</Style>
+
+		<Style x:Key="SettingsSpanTextStyle" TargetType="TextBlock">
+			<Setter Property="FontSize" Value="11"/>
+			<Setter Property="FontWeight" Value="Bold"/>
+			<Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContentControl}}"/>
+		</Style>
+
+		<Style x:Key="SettingsGlyphStyle" TargetType="Path">
+			<Setter Property="Fill" Value="{Binding Path=Foreground, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=ContentControl}}"/>
+		</Style>
+	</UserControl.Resources>
+
+	<Grid Background="Transparent">
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="5"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="Auto"/>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="Auto"/>
+		</Grid.ColumnDefinitions>
+
+		<!-- Product Header -->
+		<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Left" >
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="Auto"/>
+					<RowDefinition Height="Auto"/>
+				</Grid.RowDefinitions>
+				
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto"/>
+					<ColumnDefinition />
+				</Grid.ColumnDefinitions>
+				<Image  Source="Icons/Ranet_White.png" Stretch="None" VerticalAlignment="Center" />
+
+				<TextBlock Grid.Column="1" Grid.Row="0" Text="{zm:Static Member=net:DemoHeaderControl.DemoTitle}" Margin="6,0,0,0"  Style="{StaticResource HeaderTextStyle}" VerticalAlignment="Center" Padding="0,0"
+					   Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}"/>
+			</Grid>
+		</StackPanel>
+
+		<!-- Header of Demo Example -->
+		<StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Center" >
+			<TextBlock Text="{Binding Path=ActualDemoControl.ControlName, ElementName=demoHeaderControl}"  Style="{StaticResource TitleTextStyle}"
+					   Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}"/>
+		</StackPanel>
+
+		<StackPanel Grid.Row="0" Grid.Column="2"  Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Right" >
+			<!-- BUY NOW button -->
+			<Button VerticalAlignment="Stretch" 
+                Style="{zm:NativeStyle Style={StaticResource XmBuyButtonStyle}}" 
+                Margin="0,0,10,0" HorizontalAlignment="Right" Padding="20,4" Click="BuyButton_OnClick">
+				<Button.Content>
+					<StackPanel Orientation="Horizontal" VerticalAlignment="Stretch">
+						<TextBlock Text="BUY NOW" FontSize="16" Foreground="White" VerticalAlignment="Center" Margin="6,0,0,0"/>
+					</StackPanel>
+				</Button.Content>
+			</Button>
+
+		</StackPanel>
+
+		<StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Margin="2">
+			<!--<Line Stroke="#FFF78119" StrokeThickness="1" X1="10" Y1="2" X2="600" Y2="4" StrokeStartLineCap="Square" StrokeEndLineCap="Square" StrokeDashCap="Square" />-->
+		</StackPanel>
+
+
+		<!-- Settings span -->
+		<StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Left" >
+
+			<!-- Sample Tree button -->
+			<ToggleButton BorderThickness="0" Padding="3,0" Margin="0" IsChecked="{Binding Path=TreeViewDemo.ShowTree, ElementName=demoHeaderControl, Mode=TwoWay}">
+				<ToggleButton.Template>
+					<ControlTemplate TargetType="ToggleButton">
+						<zm:ControlTemplateRoot Width="32" Background="Transparent">
+							<zm:ControlTemplateRoot.VisualStateGroups>
+								<zm:CommonVisualStateGroups Groups="CommonStates, CheckStates"/>
+							</zm:ControlTemplateRoot.VisualStateGroups>
+							<zm:Extension.Setters>
+								<zm:Setter Property="Background" VisualState="MouseOver" Value="#40AAAAAA" Priority="2"  />
+								<zm:Setter Property="Background" VisualState="Checked" Value="#80AAAAAA" Priority="1" />
+								<zm:Setter Property="Background" VisualState="Pressed" Value="#A0AAAAAA"  />
+							</zm:Extension.Setters>
+
+							<Canvas Width="24" Height="24" HorizontalAlignment="Center">
+								<Path Data="M3,6H21V8H3V6M3,11H21V13H3V11M3,16H21V18H3V16Z">
+									<zm:Extension.Setters>
+										<zm:Setter Property="Fill" VisualState="Normal" Value="Gray"  />
+										<zm:Setter Property="Fill" VisualState="MouseOver" Value="{StaticResource ForegroundMouseOver}"  />
+										<zm:Setter Property="Fill" VisualState="Checked" Value="{StaticResource ForegroundMouseOver}" Priority="1" />
+										<zm:Setter Property="Fill" VisualState="Pressed" Value="{StaticResource ForegroundMouseOver}"  />
+									</zm:Extension.Setters>
+								</Path>
+							</Canvas>
+						</zm:ControlTemplateRoot>
+					</ControlTemplate>
+				</ToggleButton.Template>
+				<ToolTipService.ToolTip>
+					<TextBlock Text="View/Hide Ranet OLAP demo examples" TextWrapping="Wrap" />
+				</ToolTipService.ToolTip>
+			</ToggleButton>
+
+			<!-- DEMO button -->
+			<RadioButton Style="{StaticResource SettingsSpanButton}" Padding="10,0" IsChecked="{Binding Path=ShowDemo, ElementName=demoHeaderControl, Mode=TwoWay}">
+				<RadioButton.Content>
+					<StackPanel Orientation="Horizontal">
+						<Viewbox Width="32" Height="32">
+							<Canvas x:Name="appbar_control_play" Width="76" Height="76" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+								<Path Style="{StaticResource SettingsGlyphStyle}" Width="20.5832" Height="31.6667" Canvas.Left="30.0833" Canvas.Top="22.1667" Stretch="Fill"  Data="F1 M 30.0833,22.1667L 50.6665,37.6043L 50.6665,38.7918L 30.0833,53.8333L 30.0833,22.1667 Z "/>
+							</Canvas>
+						</Viewbox>
+						<TextBlock Text="SAMPLES" VerticalAlignment="Center" Style="{StaticResource SettingsSpanTextStyle}"/>
+					</StackPanel>
+				</RadioButton.Content>
+				<ToolTipService.ToolTip>
+					<TextBlock Text="Demo example real-time" TextWrapping="Wrap" />
+				</ToolTipService.ToolTip>
+			</RadioButton>
+
+			<!-- CODE button -->
+			<RadioButton Style="{StaticResource SettingsSpanButton}" Padding="10,0" IsChecked="{Binding Path=ShowSource, ElementName=demoHeaderControl, Mode=TwoWay}">
+				<RadioButton.Content>
+					<StackPanel Orientation="Horizontal">
+						<Viewbox Width="32" Height="32">
+							<Canvas x:Name="appbar_code_xml" Width="76" Height="76" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+								<Path Style="{StaticResource SettingsGlyphStyle}" Width="38" Height="33.9999" Canvas.Left="19" Canvas.Top="21.0001" Stretch="Fill"  Data="F1 M 30,51L 19,40L 19,37L 30,26L 30,31L 23,38L 30,45L 30,51 Z M 42.9999,21.0001L 37,55L 33,55L 39,21.0001L 42.9999,21.0001 Z M 46,51L 46,45L 53,38L 46,31L 46,26L 57,37L 57,40L 46,51 Z "/>
+							</Canvas>
+						</Viewbox>
+						<TextBlock Text="VIEW CODE" VerticalAlignment="Center" Style="{StaticResource SettingsSpanTextStyle}" Margin="0,0,0,0"/>
+
+					</StackPanel>
+				</RadioButton.Content>
+				<ToolTipService.ToolTip>
+					<TextBlock Text="View source code examples" TextWrapping="Wrap" />
+				</ToolTipService.ToolTip>
+			</RadioButton>
+
+			<!-- OPTIONS button -->
+			<ToggleButton Style="{StaticResource SettingsSpanButton}" Padding="10,0" IsChecked="{Binding Path=ActualDemoControl.ShowOptions, ElementName=demoHeaderControl, Mode=TwoWay}">
+				<ToggleButton.Content>
+					<StackPanel Orientation="Horizontal">
+						<Viewbox Width="32" Height="32">
+							<Canvas x:Name="appbar_cog" Width="76" Height="76" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+								<Path Style="{StaticResource SettingsGlyphStyle}" Width="37.6263" Height="37.6262" Canvas.Left="19.1869" Canvas.Top="19.1868" Stretch="Fill"  Data="F1 M 27.5314,21.8628L 33.0126,19.4224L 34.7616,23.3507C 36.6693,22.9269 38.6044,22.8903 40.4668,23.2026L 42.0083,19.1868L 47.6098,21.337L 46.0683,25.3528C 47.6612,26.3669 49.0747,27.6889 50.2088,29.2803L 54.1371,27.5313L 56.5776,33.0126L 52.6493,34.7616C 53.0731,36.6693 53.1097,38.6043 52.7974,40.4668L 56.8131,42.0083L 54.6629,47.6097L 50.6472,46.0683C 49.6331,47.6613 48.3111,49.0748 46.7197,50.2089L 48.4686,54.1372L 42.9874,56.5776L 41.2384,52.6493C 39.3307,53.0731 37.3957,53.1097 35.5333,52.7974L 33.9918,56.8131L 28.3903,54.6629L 29.9318,50.6472C 28.3388,49.6331 26.9252,48.3111 25.7911,46.7196L 21.8628,48.4686L 19.4224,42.9873L 23.3507,41.2383C 22.9269,39.3307 22.8903,37.3957 23.2026,35.5332L 19.1869,33.9918L 21.3371,28.3903L 25.3528,29.9318C 26.3669,28.3388 27.6889,26.9252 29.2804,25.7911L 27.5314,21.8628 Z M 34.3394,29.7781C 29.7985,31.7998 27.7564,37.1198 29.7781,41.6606C 31.7998,46.2015 37.1198,48.2436 41.6606,46.2219C 46.2015,44.2002 48.2436,38.8802 46.2219,34.3394C 44.2002,29.7985 38.8802,27.7564 34.3394,29.7781 Z "/>
+							</Canvas>
+						</Viewbox>
+						<TextBlock Text="OPTIONS" VerticalAlignment="Center" Style="{StaticResource SettingsSpanTextStyle}"/>
+					</StackPanel>
+				</ToggleButton.Content>
+				<ToolTipService.ToolTip>
+					<TextBlock Text="View Options" TextWrapping="Wrap" />
+				</ToolTipService.ToolTip>
+			</ToggleButton>
+
+		</StackPanel>
+
+		<!-- Header of Demo Example -->
+		<StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Center" >
+			<TextBlock Text="{Binding Path=ActualDemoControl.About, ElementName=demoHeaderControl}" Style="{StaticResource DescriptionTextStyle}"
+					   Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}"/>
+		</StackPanel>
+
+		<!-- APP Settings span -->
+		<StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Stretch" HorizontalAlignment="Right" >
+
+			<!-- SETTINGS button -->
+			<Button Style="{StaticResource SettingsSpanButton}" Padding="5,0" Margin="10,0" Click="OnSettingsClick">
+				<Button.Content>
+					<StackPanel Orientation="Horizontal">
+						<Viewbox Width="32" Height="32">
+							<Canvas x:Name="appbar_cogs" Width="76" Height="76" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+								<Path Style="{StaticResource SettingsGlyphStyle}" Width="69.5252" Height="67.4868" Canvas.Left="3.30816" Canvas.Top="5.34655" Stretch="Fill" Data="F1 M 32.6227,68.9728C 33.1208,70.2446 33.7077,71.4719 34.3757,72.6471C 35.567,72.7702 36.7761,72.8333 38,72.8333C 40.6447,72.8333 43.2205,72.5386 45.6965,71.9802C 42.2807,68.5449 40.1698,63.8107 40.1698,58.5835C 40.1698,48.0901 48.6764,39.5835 59.1698,39.5835C 64.2047,39.5835 68.7822,41.5419 72.182,44.7385C 72.6094,42.5584 72.8333,40.3053 72.8333,38C 72.8333,36.442 72.731,34.908 72.5328,33.4041C 70.4772,32.3109 68.2718,31.4621 65.9554,30.8963L 65.6219,22.7367C 63.5664,22.3692 61.4511,22.1741 59.2916,22.1671L 57.491,30.1322C 54.2845,30.3184 51.2204,31.0348 48.3848,32.1949L 43.318,25.7887C 41.3995,26.7177 39.5749,27.8102 37.8622,29.0479L 41.0883,36.5527C 38.6742,38.5364 36.5919,40.9091 34.9373,43.575L 27.0703,41.3697C 26.073,43.2256 25.2319,45.178 24.5646,47.2093L 31.5867,51.385C 30.9883,53.6844 30.6698,56.0968 30.6698,58.5835L 30.746,60.6839L 23.0854,63.5239C 23.3743,65.6539 23.8474,67.7255 24.4881,69.7219L 32.6227,68.9728 Z M 27.0669,37.1755L 34.9338,39.3807C 35.9312,37.5248 36.7723,35.5724 37.4395,33.5412L 30.4175,29.3654C 31.0159,27.066 31.3344,24.6537 31.3344,22.1669L 31.2581,20.0665L 38.9187,17.2265C 38.6299,15.0965 38.1568,13.0249 37.5161,11.0285L 29.3815,11.7776C 28.4787,9.47258 27.2844,7.31377 25.8439,5.34655C 22.7943,6.48232 19.9467,8.03307 17.3698,9.93015C 20.1557,13.2359 21.8344,17.5054 21.8344,22.1669C 21.8344,32.5019 13.5826,40.9096 3.30816,41.1611C 3.60321,44.4411 4.35293,47.59 5.49381,50.5444C 8.34489,50.2806 11.0742,49.5968 13.6194,48.5555L 18.6861,54.9617C 20.6046,54.0327 22.4293,52.9403 24.142,51.7025L 20.9158,44.1977C 23.3299,42.2141 25.4123,39.8414 27.0669,37.1755 Z "/>
+							</Canvas>
+						</Viewbox>
+						<TextBlock Text="APP SETTINGS" VerticalAlignment="Center" Style="{StaticResource SettingsSpanTextStyle}"/>
+					</StackPanel>
+
+				</Button.Content>
+				<ToolTipService.ToolTip>
+					<TextBlock Text="Demo App parameters setting" TextWrapping="Wrap" />
+				</ToolTipService.ToolTip>
+			</Button>
+
+		</StackPanel>
+
+	</Grid>
+</UserControl>

@@ -1,0 +1,7 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the control used to pick members from a particular hierarchy in the dimension of the cube metadata. The control is implemented as a popup window.</Run>
+<Run>Members can be picked from different levels of the same hierarchy; it means that both members themselves and folders can be selected.</Run> 
+<Run>The control can be used for both single and multiple choice mode; the mode is chosen during the initialization of the control. For multiple choice, there are special commands in the context menu. For example, it is possible to select child members or all their descendants.</Run>
+<Run>The result of this operation is an MDX set of members.</Run>
+</Paragraph></Section>

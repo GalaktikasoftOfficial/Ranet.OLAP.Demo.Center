@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Ranet.Demo.Core.SourceOptionsControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Name="SourceOptions">
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height ="Auto"/>
+			<RowDefinition Height ="*"/>
+		</Grid.RowDefinitions>
+        <Button Click="DownloadZipFile_OnClick" Margin="5">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Icons/Download_32x32.png" Width="32" Height="32" Margin="2" HorizontalAlignment="Left" />
+                    <TextBlock Text="Download Source code" Margin="2" HorizontalAlignment="Left" VerticalAlignment="Center" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+		<ListBox Grid.Row="1" 
+             x:Name="FilesListBox" 
+             DisplayMemberPath="FileName"
+             SelectedItem="{Binding Path=SelectedSourceCodeEntry, ElementName=SourceOptions, Mode=TwoWay}" 
+             ItemsSource="{Binding Path=SourceCodeList, ElementName=SourceOptions}" Margin="0,5,0,0" SelectedIndex="0"/>
+	</Grid>
+</UserControl>

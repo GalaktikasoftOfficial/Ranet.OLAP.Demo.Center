@@ -1,0 +1,7 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates how to initialize the dynamic pivot grid with filters applied to the cube metadata. The filters allow hiding any dimensions, hierarchies, levels, measures, or anything else from the cube metadata area for particular users. It is often required to implement security without using the SSAS security mechanism.</Run>
+<Run>The filters can follow the Include principle, when the metadata tree consists of only the fields present in the filter, or the Exclude one, when the metadata tree is composed of all fields except for those present in the filter.</Run>
+<Run>When the filter type is changed, the metadata tree is updated immediately. The content of the filter can be seen by clicking the "View Metadata Filters Content" button.</Run>
+<Run>To filter the cube data need to define a Subcube.</Run>
+</Paragraph></Section>

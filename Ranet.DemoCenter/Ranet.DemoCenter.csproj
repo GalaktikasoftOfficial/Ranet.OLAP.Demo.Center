@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" Sdk="Microsoft.NET.Sdk.WindowsDesktop" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.props" Condition="Exists('$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.props')" />
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <ApplicationIcon />
+    <OutputType>WinExe</OutputType>
+    <StartupObject />
+    <EnableDefaultApplicationDefinition>false</EnableDefaultApplicationDefinition>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+	  <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+	  <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>	
+	  <EnableDefaultPageItems>false</EnableDefaultPageItems>
+    <UseWpf>true</UseWpf>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+    <AssemblyName>Ranet.DemoCenter</AssemblyName>
+  </PropertyGroup>  
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--<None Remove="Debug\**" />-->
+    <_SettingsFiles Remove="Debug\**" />
+  </ItemGroup>   
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DemoHeaderControl.xaml.cs">
+      <DependentUpon>DemoHeaderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <None Include="Resources\MdxLayout.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="ApplicationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DemoHeaderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Resource Include="Icons\Ranet.png" />
+    <Resource Include="RanetOlap.ico" />
+    <Resource Include="Icons\Ranet_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Zaaml.UI" Version="0.2.1-alpha.23" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Ranet.Demo.Core\Ranet.Demo.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+
+  <Import Project="$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.targets" Condition="Exists('$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.targets')" />
+  <!--<Import Project="$(XamlSpyInstallPath)MSBuild\FirstFloor.XamlSpy.WPF.targets" Condition="'$(XamlSpyInstallPath)' != '' and '$(Configuration)' == 'Debug'" />-->
+
+  <Target Name="IncludeDemoModules" BeforeTargets="PrepareForBuild">
+    <Message Text="IncludeDemoModules" Importance="High" />
+    <ItemGroup>
+      <Resource Include="DemoModules\*.zip" />
+    </ItemGroup>
+  </Target>
+
+  <Target Name="AfterBuild">
+  </Target>
+  <Target Name="Clean">
+    <RemoveDir Directories="$(DemoBuildTools)" />
+  </Target>
+
+</Project>

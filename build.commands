@@ -1,0 +1,4 @@
+
+cd D:\github\Ranet.OLAP.Demo.Center
+
+msbuild Ranet.UILibrary.Demo.sln /p:Configuration=Release /t:Restore; -m

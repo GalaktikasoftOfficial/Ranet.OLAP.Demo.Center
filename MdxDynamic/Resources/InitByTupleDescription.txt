@@ -1,0 +1,6 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates how the dynamic pivot grid can be initialized with the parameters allowing to filter data. The parameters are sent as a tuple and fill the filter area automatically.</Run>
+<Run>When the report layout settings are reset, the filters initializes automatically. When importing the previously saved report layout settings, appropriate filters are applied automatically. The user can change filters manually when needed.</Run>
+<Run>The parameters sent in the tuple are displayed among active filters.</Run>
+</Paragraph></Section>

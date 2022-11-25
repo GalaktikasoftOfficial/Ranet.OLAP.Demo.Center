@@ -1,0 +1,84 @@
+﻿<core:DemoControl
+    x:Class="Choices.DualSliderChoices"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:core="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
+    xmlns:zm="http://schemas.zaaml.com/xaml"
+    HorizontalContentAlignment="Stretch"
+    VerticalContentAlignment="Stretch"
+    Loaded="DualSliderChoices_OnLoaded"
+    mc:Ignorable="d">
+    <core:DemoControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </core:DemoControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid Margin="40,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <rl:MemberSliderControl
+                x:Name="SliderDateCalendarYear"
+                Grid.Row="0"
+                Height="50"
+                VerticalAlignment="Top" />
+            <rl:MemberSliderControl
+                x:Name="SliderDataCalendarMonthYear"
+                Grid.Row="1"
+                Height="50"
+                Margin="0,6,0,0"
+                VerticalAlignment="Top" />
+            <rl:MemberSliderControl
+                x:Name="SliderDataCalendarDayName"
+                Grid.Row="2"
+                Height="70"
+                Margin="0,6,0,6"
+                VerticalAlignment="Top" />
+        </Grid>
+
+        <zm:NativeGridSplitter
+            Grid.Row="1"
+            Height="4"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Bottom"
+            Visibility="Visible" />
+        <rl:UpdateablePivotGridControl
+            x:Name="PivotGridControl"
+            Grid.Row="3"
+            Margin="0,2,0,0" />
+    </Grid>
+
+    <core:DemoControl.Options>
+        <Grid VerticalAlignment="Top">
+            <Button Height="30" Click="ApplyMemberSliderResultSetClick">
+                <Button.Content>
+                    <StackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                        <Image
+                            Width="16"
+                            Height="16"
+                            Source="/Ranet.Olap;component/Controls/Images/Run.png" />
+                        <TextBlock
+                            Margin="4,0,0,0"
+                            Style="{StaticResource MainTextBlock}"
+                            Text="Initialize Pivot Grid with the slider result" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+        </Grid>
+    </core:DemoControl.Options>
+</core:DemoControl>

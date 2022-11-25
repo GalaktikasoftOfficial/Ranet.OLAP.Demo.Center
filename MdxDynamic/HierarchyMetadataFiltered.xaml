@@ -1,0 +1,46 @@
+﻿<core:DemoControl x:Class="MdxDynamic.HierarchyMetadataFiltered"
+                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                  mc:Ignorable="d"
+                  xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
+                  xmlns:core="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+                  VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" 
+				  xmlns:zm="http://schemas.zaaml.com/xaml"
+                  Loaded="HierarchyMetadataFiltered_OnLoaded">
+    <core:DemoControl.Resources>
+        <ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
+    </core:DemoControl.Resources>
+    <Grid>
+        <rl:DynamicPivotGridControl x:Name="pivotMdxDynamicControl" />
+    </Grid>
+    <core:DemoControl.Options>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical">
+				<zm:Label Content="Filter Type:" HorizontalAlignment="Left"/>
+                <RadioButton x:Name="NoneButton" Content="None" Margin="10,0,10,5" Checked="NoneButton_OnChecked"/>
+                <RadioButton x:Name="IncludeButton" Content="Include" Margin="10,0,10,5" Checked="IncludeButton_OnChecked"/>
+                <RadioButton Content="Exclude" Margin="10,0,10,5" Checked="ExcludeButton_OnChecked"/>
+            </StackPanel>
+            
+			<!-- xm:Label Grid.Row="1" Content="Filter Content:" HorizontalAlignment="Left"/>
+            <core:TreeViewEx  x:Name="tree" Grid.Row="2"  BorderThickness="0"/ -->
+            
+            <Button Name="ViewFiltersButton" Grid.Row="3" Click="ViewFiltersButton_OnClickButton" HorizontalContentAlignment="Center" Width="Auto" VerticalContentAlignment="Center" Margin="0,5">
+                <Button.Content>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                        <TextBlock Margin="4,0,0,0" Text="View Metadata Filters Content" Style="{StaticResource MainTextBlock}" />
+                    </StackPanel>
+                </Button.Content>
+            </Button>
+
+        </Grid>
+    </core:DemoControl.Options>
+</core:DemoControl>

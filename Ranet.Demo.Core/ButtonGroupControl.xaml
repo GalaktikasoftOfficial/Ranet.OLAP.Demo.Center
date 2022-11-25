@@ -1,0 +1,72 @@
+﻿<UserControl x:Class="Ranet.Demo.Core.ButtonGroupControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"  
+    xmlns:zm="http://schemas.zaaml.com/xaml"
+    xmlns:local="clr-namespace:Ranet.Demo.Core"
+    x:Name="GroupButtons">
+	<UserControl.Resources>
+		<SolidColorBrush x:Key="BackgroundCheckedButton" Color="#FF0096FF"/>
+		<SolidColorBrush x:Key="ButtonBorder" Color="#FFCECECE"/>
+		<ControlTemplate x:Key="XmButtonBaseTemplate"  TargetType="ButtonBase">
+			<zm:ControlTemplateRoot x:Name="Root" Background="Transparent">
+
+				<zm:ControlTemplateRoot.VisualStateGroups>
+					<zm:CommonVisualStateGroups Groups="CommonStates, CheckStates"/>
+				</zm:ControlTemplateRoot.VisualStateGroups>
+				<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" x:Name="StackPanel">
+
+					<Border x:Name="Border"  BorderThickness="1" BorderBrush="{zm:ThemeResource Keyword=ApplicationBorderBrush}" 
+                            Background="Transparent"
+                            VerticalAlignment="Top" HorizontalAlignment="Center" CornerRadius="5">
+						<zm:Extension.Setters>
+							<zm:Setter Property="Opacity" VisualState="MouseOver" Value="0.5" />
+							<zm:Setter Property="Background" VisualState="Pressed" Value="{StaticResource BackgroundCheckedButton}" Priority="2"/>
+							<zm:Setter Property="Background" VisualState="Checked" Value="{StaticResource BackgroundCheckedButton}" Priority="1"/>
+						</zm:Extension.Setters>
+
+						<Image  Source="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(local:ImgSourceAttachable.ImageSource)}"
+                                Height="25" Width="25" Margin="5" />
+					</Border>
+					<ContentPresenter Content="{TemplateBinding Content}"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Center" Margin="0,5"/>
+
+				</StackPanel>
+			</zm:ControlTemplateRoot>
+		</ControlTemplate>
+
+		<zm:Style x:Key="XmSquareToggleButtonStyle" TargetType="ToggleButton">
+			<zm:Setter Property="Width" Value="50"/>
+			<zm:Setter Property="Height" Value="70"/>
+			<zm:Setter Property="Template"  Value="{StaticResource XmButtonBaseTemplate}"/>
+		</zm:Style>
+		<zm:Style x:Key="XmSquareRadioButtonStyle" TargetType="RadioButton">
+			<zm:Setter Property="Width" Value="60"/>
+			<zm:Setter Property="Height" Value="70"/>
+			<zm:Setter Property="Template"  Value="{StaticResource XmButtonBaseTemplate}"/>
+		</zm:Style>
+		<Style x:Key="SquareToggleButtonStyle" TargetType="ToggleButton" BasedOn="{zm:NativeStyle Style={StaticResource XmSquareToggleButtonStyle}}"/>
+		<Style x:Key="SquareRadioButtonStyle" TargetType="RadioButton" BasedOn="{zm:NativeStyle Style={StaticResource XmSquareRadioButtonStyle}}"/>
+
+	</UserControl.Resources>
+	<StackPanel Orientation="Horizontal" Height="80" HorizontalAlignment="Center">
+
+		<RadioButton   Content="Preview" Style="{StaticResource SquareRadioButtonStyle}" IsChecked="True"
+                             local:ImgSourceAttachable.ImageSource="Icons/preview-orange.png" Checked="PreviewButton_OnChecked" x:Name="PreviewButton"
+                       Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}"/>
+
+		<RadioButton   Content="Code" Style="{StaticResource SquareToggleButtonStyle}" 
+                             local:ImgSourceAttachable.ImageSource="Icons/code.png" Checked="CodeButton_OnChecked" x:Name="CodeButton" Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}"/>
+		<Grid>
+			<ToggleButton   Content="Show options" Style="{StaticResource SquareToggleButtonStyle}" IsChecked="True" Unchecked="ShowOptionsButton_OnChecked"
+                             local:ImgSourceAttachable.ImageSource="Icons/Show.png" Width="90" Checked="ShowOptionsButton_OnChecked" x:Name="ShowOptionsButton" Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}"/>
+
+		</Grid>
+
+	</StackPanel>
+
+</UserControl>

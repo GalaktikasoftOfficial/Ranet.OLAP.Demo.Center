@@ -1,0 +1,7 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the capabilities of selecting data by filtering members based on inner values. The user defines the criteria to filter values; there can be several conditions in various combinations.</Run>
+<Run>To apply the filter, press the Enter button on a field with the required value.</Run>
+<Run>The result of this operation is an MDX expression. This expression can be used in MDX queries.</Run>
+<Run>This demo displays the result of using filters in the pivot grid area.</Run>
+</Paragraph></Section>

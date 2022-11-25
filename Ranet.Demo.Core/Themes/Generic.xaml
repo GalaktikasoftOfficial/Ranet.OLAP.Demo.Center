@@ -1,0 +1,126 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:zm="http://schemas.zaaml.com/xaml"
+    xmlns:demo="clr-namespace:Ranet.Demo.Core">
+
+	<SolidColorBrush x:Key="BackgroundTabItem" Color="#FF4C4C4C"/>
+	<SolidColorBrush x:Key="SelectedBackgroundTabItem" Color="#FF555555"/>
+	<SolidColorBrush x:Key="BackgroundDockPanel" Color="#FFF2F2F2"/>
+	<SolidColorBrush x:Key="BackgroundBuyBtn" Color="#FFF78119"/>
+	<SolidColorBrush x:Key="BackgroundBuyBtnMouseOver" Color="#FFF5923A"/>
+	<zm:SwitchConverter x:Key="ContentVisibilitySourceConverter">
+		<zm:Case Key="Source" Value="Visible" />
+		<zm:Default Value="Collapsed" />
+	</zm:SwitchConverter>
+
+	<zm:SwitchConverter x:Key="ContentVisibilityPreviewConverter">
+		<zm:Case Key="Source" Value="Collapsed" />
+		<zm:Default Value="Visible" />
+	</zm:SwitchConverter>
+	<Style TargetType="demo:DemoControl">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="demo:DemoControl">
+					<Grid Background="{zm:ThemeResource Keyword=ApplicationBackgroundBrush}">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="300"/>
+						</Grid.ColumnDefinitions>
+						<Grid.RowDefinitions>
+							<RowDefinition  Height="Auto"/>
+							<RowDefinition/>
+						</Grid.RowDefinitions>
+
+						<Grid Visibility="Collapsed">
+							<Grid Height="55" 
+										Visibility="{Binding Path=IsInDemoCenter, RelativeSource={RelativeSource TemplatedParent}, FallbackValue=Collapsed,  Converter={zm:VisibilityConverter}}">
+								<TextBlock Text="{Binding Path=ControlName, RelativeSource={RelativeSource TemplatedParent}}" FontSize="20" Margin="20,0" Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}"/>
+								<TextBlock Text="{Binding Path=About, RelativeSource={RelativeSource TemplatedParent} }" Margin="20,30,20,0" FontSize="12" Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}"/>
+							</Grid>
+						</Grid>
+
+						<Grid Grid.Column="1" Grid.Row="0" Visibility="Collapsed">
+							<demo:ButtonGroupControl x:Name="ControlButtons" 
+                                                     ViewMode="{Binding Path=ViewMode, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                                     ShowOptions="{Binding Path=ShowOptions, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}"
+                                                     Visibility="{Binding Path=IsInDemoCenter, RelativeSource={RelativeSource TemplatedParent}, FallbackValue=Collapsed,  Converter={zm:VisibilityConverter}}" />
+
+						</Grid>
+
+						<Grid Grid.Column="0" Margin="0" Grid.Row="1" x:Name="GridContent">
+
+							<ContentPresenter   Content="{TemplateBinding Content}" 
+																	Visibility="{Binding Path=ViewMode, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ContentVisibilityPreviewConverter}, FallbackValue=Visible}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+							<demo:SourceViewerControl x:Name="SourceViewer" SourceText="{Binding Path=SelectedSourceCodeEntry, ElementName=SourceOptions}"  
+																				Visibility="{Binding Path=ViewMode, RelativeSource={RelativeSource TemplatedParent}, FallbackValue=Collapsed, Converter={StaticResource ContentVisibilitySourceConverter}}"/>
+
+						</Grid>
+
+						<Grid Grid.Column="1" Grid.Row="1" x:Name="OptionsHost" Margin="5,0,0,0" >
+							<Border BorderThickness="0" BorderBrush="{zm:ThemeResource Keyword=ApplicationBorderBrush}">
+								<Grid >
+									<demo:OptionsControl Description="{Binding Path=Description, RelativeSource={RelativeSource TemplatedParent}}" 
+                                                            Options="{Binding Path=Options, RelativeSource={RelativeSource TemplatedParent}}"
+                                                          Visibility="{Binding Path=ViewMode,RelativeSource={RelativeSource TemplatedParent}, FallbackValue=Visible, Converter={zm:TernaryConverter Operand=Demo, TrueValue=Visible, FalseValue=Collapsed}}"/>
+
+									<demo:SourceOptionsControl x:Name="SourceOptions" AssemblyName="{Binding Path=AssemblyName, RelativeSource={RelativeSource TemplatedParent}}" SourceCodeList="{Binding Path=SourceList, RelativeSource={RelativeSource TemplatedParent}}"
+                                                               Visibility="{Binding Path=ViewMode, RelativeSource={RelativeSource TemplatedParent}, FallbackValue=Collapsed, Converter={zm:TernaryConverter Operand=Source, TrueValue=Visible, FalseValue=Collapsed}}"/>
+
+								</Grid>
+							</Border>
+						</Grid>
+
+						<zm:NativeGridSplitter Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" VerticalAlignment="Stretch" HorizontalAlignment="Left" 
+																							Visibility="{Binding Path=ShowOptions, RelativeSource={RelativeSource TemplatedParent}, FallbackValue=Collapsed, Converter={zm:VisibilityConverter}}"/>
+
+					</Grid>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+	<!--<Style TargetType="demo:OptionsControl">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="demo:OptionsControl">
+					<ScrollViewer VerticalScrollBarVisibility="Auto">
+						<StackPanel Orientation="Vertical">
+							<ToggleButton Content="Description"  Margin="10,10, 10, 0" x:Name="DescriptionButton" Height="30"/>
+							<zm:ExpandControl Duration="0:0:0.2" IsExpanded="{Binding Path=IsChecked, ElementName=DescriptionButton}">
+								<Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+									<RichTextBox x:Name="RichTextDescription" BorderThickness="0" IsReadOnly="True"/>
+								</Grid>
+							</zm:ExpandControl>
+							<ContentPresenter Content="{Binding Path=Options, RelativeSource={RelativeSource TemplatedParent}}" Margin="10"/>
+						</StackPanel>
+					</ScrollViewer>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>-->
+	<Style TargetType="demo:OptionsControl">
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="demo:OptionsControl">
+					<ScrollViewer VerticalScrollBarVisibility="Auto" BorderThickness="0">
+						<zm:AccordionViewControl x:Name="SettingsAccordion" HorizontalAlignment="Stretch" SelectionMode="ZeroOrMore" 
+                               Padding="0" Foreground="{zm:ThemeResource Keyword=ApplicationForegroundBrush}">
+							<zm:AccordionViewItem Header="Description" IsSelected="False" 
+                                     HorizontalContentAlignment="Left">
+								<Grid HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+								<RichTextBox x:Name="RichTextDescription" BorderThickness="0" IsReadOnly="True"/>
+							</Grid>
+								</zm:AccordionViewItem>
+							<zm:AccordionViewItem Header="Options" IsSelected="True" 
+                                     HorizontalContentAlignment="Left">
+							<ContentPresenter Content="{Binding Path=Options, RelativeSource={RelativeSource TemplatedParent}}" Margin="10"/>
+							</zm:AccordionViewItem>
+						</zm:AccordionViewControl>
+					</ScrollViewer>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
+
+</ResourceDictionary>

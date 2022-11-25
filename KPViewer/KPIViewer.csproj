@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <DemoModule>true</DemoModule>
+    <DemoName>KPIViewer</DemoName>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ranet.Olap.Mdx" Version="4.1.0-alpha219" />
+    <PackageReference Include="Ranet.Olap.UI" Version="4.1.0-alpha219" />
+    <PackageReference Include="Zaaml.UI" Version="0.2.1-alpha.23" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="KPIViewerResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>KPIViewerResources.resx</DependentUpon>
+    </Compile>
+
+    <EmbeddedResource Update="KPIViewerResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>KPIViewerResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+
+    <Resource Include="Resources\*.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ranet.Demo.Core\Ranet.Demo.Core.csproj" />
+  </ItemGroup>
+</Project>

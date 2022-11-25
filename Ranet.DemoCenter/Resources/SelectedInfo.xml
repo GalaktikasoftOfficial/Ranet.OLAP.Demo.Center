@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfMemberChoiceSettings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <MemberChoiceSettings>
+    <Info>
+      <IsVisible>true</IsVisible>
+      <Caption>All Periods</Caption>
+      <ChildCount>5</ChildCount>
+      <Description />
+      <DrilledDown>false</DrilledDown>
+      <HierarchyUniqueName>[Date].[Calendar]</HierarchyUniqueName>
+      <LevelDepth>0</LevelDepth>
+      <LevelName>[Date].[Calendar].[(All)]</LevelName>
+      <Name>[Date].[Calendar].[All Periods]</Name>
+      <ParentSameAsPrevious>false</ParentSameAsPrevious>
+      <UniqueName>[Date].[Calendar].[All Periods]</UniqueName>
+    </Info>
+    <SelectState>Selected_With_Descendants_Has_Excluded</SelectState>
+    <Children>
+      <MemberChoiceSettings>
+        <Info>
+          <IsVisible>true</IsVisible>
+          <Caption>CY 2006</Caption>
+          <ChildCount>2</ChildCount>
+          <Description />
+          <DrilledDown>false</DrilledDown>
+          <HierarchyUniqueName>[Date].[Calendar]</HierarchyUniqueName>
+          <LevelDepth>1</LevelDepth>
+          <LevelName>[Date].[Calendar].[Calendar Year]</LevelName>
+          <Name>[Date].[Calendar].[Calendar Year].&amp;[2006]</Name>
+          <ParentSameAsPrevious>true</ParentSameAsPrevious>
+          <UniqueName>[Date].[Calendar].[Calendar Year].&amp;[2006]</UniqueName>
+        </Info>
+        <SelectState>Labeled_As_Parent</SelectState>
+        <Children>
+          <MemberChoiceSettings>
+            <Info>
+              <IsVisible>true</IsVisible>
+              <Caption>H2 CY 2006</Caption>
+              <ChildCount>2</ChildCount>
+              <Description />
+              <DrilledDown>false</DrilledDown>
+              <HierarchyUniqueName>[Date].[Calendar]</HierarchyUniqueName>
+              <LevelDepth>2</LevelDepth>
+              <LevelName>[Date].[Calendar].[Calendar Semester]</LevelName>
+              <Name>[Date].[Calendar].[Calendar Semester].&amp;[2006]&amp;[2]</Name>
+              <ParentSameAsPrevious>true</ParentSameAsPrevious>
+              <UniqueName>[Date].[Calendar].[Calendar Semester].&amp;[2006]&amp;[2]</UniqueName>
+            </Info>
+            <SelectState>Selected_With_Descendants</SelectState>
+            <Children />
+          </MemberChoiceSettings>
+        </Children>
+      </MemberChoiceSettings>
+    </Children>
+  </MemberChoiceSettings>
+</ArrayOfMemberChoiceSettings>

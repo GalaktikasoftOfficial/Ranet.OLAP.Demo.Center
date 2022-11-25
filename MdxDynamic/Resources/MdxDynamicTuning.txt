@@ -1,0 +1,6 @@
+﻿<Section xml:space="preserve" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+<Paragraph TextAlignment="Left">
+<Run>This sample demonstrates the capabilities to customize the visual display of the pivot table.</Run>
+<Run>The focus is generally on the toolbar setup. The ability to unify the style of the pivot table to match the style of the host application allows cutting out lots of possible issues related to the ergonomics of the user interface</Run>
+<Run>Moreover, the example highlights the capabilities of integrating extra parts of displaying visual data (such as diagrams, for instance) into the table.</Run>
+</Paragraph></Section>

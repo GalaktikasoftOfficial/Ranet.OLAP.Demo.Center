@@ -1,0 +1,42 @@
+﻿<core:DemoControl x:Class="Choices.PopUpChoices"
+				  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+				  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+				  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+				  xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+				  mc:Ignorable="d" 
+				  xmlns:core="clr-namespace:Ranet.Demo.Core;assembly=Ranet.Demo.Core"
+                  xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
+				  Loaded="PopUpChoices_OnLoaded">
+	<core:DemoControl.Resources>
+		<ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
+	</core:DemoControl.Resources>
+	<Grid UseLayoutRounding="False">
+		<Grid Margin="0,0,4,4" Background="{Binding ElementName=cbBackGroundColor, Path=SelectedItem.Tag}">
+			<ScrollViewer VerticalScrollBarVisibility="Auto">
+				<StackPanel>
+					<TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Cube Choice:"
+                                           Style="{StaticResource MainTextBlock}" />
+					<rl:CubeChoicePopUp x:Name="PopUpCubeChoiceControl" Margin="4,0,4,0" Width="Auto"
+                                                         MinWidth="150" VerticalAlignment="Center"
+                                                         CubeSelected="PopUpCubeChoiceControl_OnCubeSelected" />
+					<TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                                           Text="Dimension Choice:" Style="{StaticResource MainTextBlock}" />
+					<rl:DimensionChoicePopUp x:Name="PopUpDimensionChoiceControl" Margin="4,2,4,0"
+                                                              Width="Auto" MinWidth="150" VerticalAlignment="Center"
+                                                              DimensionSelected="PopUpDimensionChoiceControl_OnDimensionSelected" />
+					<TextBlock HorizontalAlignment="Left" VerticalAlignment="Center"
+                                           Text="Hierarchy Choice:" Style="{StaticResource MainTextBlock}" />
+					<rl:HierarchyChoicePopUp x:Name="PopUpHierarchyChoiceControl" Margin="4,2,4,0"
+                                                              Width="Auto" MinWidth="150" VerticalAlignment="Center"
+                                                              HierarchySelected="PopUpHierarchyChoiceControl_OnHierarchySelected" />
+					<TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Text="Level Choice:"
+                                           Style="{StaticResource MainTextBlock}" />
+					<rl:LevelChoicePopUp x:Name="PopUpLevelChoiceControl" Margin="4,2,4,0"
+                                                          Width="Auto" MinWidth="150" VerticalAlignment="Center" />
+				</StackPanel>
+			</ScrollViewer>
+
+		</Grid>
+	</Grid>
+
+</core:DemoControl>
