@@ -1,44 +1,23 @@
-# Ranet.OLAP.Demo.Center
-Ranet OLAP Browser and other Visual Controls for XMLA datasources
+# Ranet OLAP Demos
 
+Ranet OLAP Browser and other Visual Controls for XMLA datasources.
 
-Ranet.Demo.Core\RanetDemoApp.cs
+![The Ranet OLAP Browser.](docs/images/ranet-olap-browser-demo.png)
 
-```csharp
-protected virtual void OnApplicationStartup()
-{
-	Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US");
-	RanetThemeManager.CurrentTheme = RanetThemes.Office;
-}
-```
+This repository contains technical Ranet OLAP demos for WPF and Windows Applications.
 
+To run the demos on your machine, clone this repository and follow the instructions below.
 
-Ranet.Demo.Core\Configuration\DemoConfiguration.cs 
+## Prepare Demos for Development
 
-```csharp
-private ConfigurationInfo SetDefaulSettings()
-{
-	var storage = new ConnectionStringStorage();
-	storage.Add("Default Connection", "Provider=MSOLAP.4; Data Source=https://bi.galaktika-soft.com/olap/2012/msmdpump.dll; Catalog=AdventureWorksDW2012 MD-EE;");
-	storage.Add("AdventureWorks TM 2012", "Provider=MSOLAP.4; Data Source=https://bi.galaktika-soft.com/tm/2012/msmdpump.dll; Catalog=AdventureWorks Tabular Model SQL 2012;");
-	var configInfo = new ConfigurationInfo {SelectedIndex = 0, Storage = storage, CubeName = "Adventure Works"};
-	return configInfo;
-}
-```
+## Contribute to the Ranet OLAP Demo samples
 
+Source code corrections and new code samples are welcome.
 
-Ranet.Demo.Core\TreeViewDemo.xaml.cs
+## Quick Start
 
-private void GetModules()
+* [Connection String Storage](docs/demo-configuration.md)
+* [UICulture and Theme Manager](docs/demo-culture-theme.md)
 
-
-+		assemblyDemo	{KPIViewer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}	System.Reflection.Assembly {System.Reflection.RuntimeAssembly}
-+		assemblyDemo	{MdxDesigner, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}	System.Reflection.Assembly {System.Reflection.RuntimeAssembly}
-+		assemblyDemo	{MdxDynamic, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}	System.Reflection.Assembly {System.Reflection.RuntimeAssembly}
-+		assemblyDemo	{Choices, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}	System.Reflection.Assembly {System.Reflection.RuntimeAssembly}
-+		assemblyDemo	{PivotGrid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}	System.Reflection.Assembly {System.Reflection.RuntimeAssembly}
-+		assemblyDemo	{Gauges, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}	System.Reflection.Assembly {System.Reflection.RuntimeAssembly}
-+		assemblyDemo	{Integrations, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}	System.Reflection.Assembly {System.Reflection.RuntimeAssembly}
-+		assemblyDemo	{ServerExplorer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}	System.Reflection.Assembly {System.Reflection.RuntimeAssembly}
-+		assemblyDemo	{ServerExplorer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null}	System.Reflection.Assembly {System.Reflection.RuntimeAssembly}
-
+## See Also
+* [Ranet OLAP](https://galaktika-soft.com/ranet-olap)
