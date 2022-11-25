@@ -2,7 +2,7 @@
 
 Ranet OLAP Browser and other Visual Controls for XMLA datasources.
 
-![The Ranet OLAP Browser.](docs/images/ranet-olap-browser-demo.png)
+![The Ranet OLAP Browser.](Docs/Images/ranet-olap-browser-demo.png)
 
 This repository contains technical Ranet OLAP demos for WPF and Windows Applications.
 
