@@ -19,5 +19,19 @@ Source code corrections and new code samples are welcome.
 * [Connection String Storage](docs/demo-configuration.md)
 * [UICulture and Theme Manager](docs/demo-culture-theme.md)
 
+
+## Support & Feedback
+
+If you have questions regarding Ranet OLAP Browser functionality, consult 
+[tikets](https://galaktika-soft.com/tickets-list).
+
+If you want to report a bug, request a feature, or ask a question, submit an issue to this repo. 
+
+Alternatively, you can contact us at the Support Center if you own an active Ranet OLAP license.
+
+## License
+
+Familiarize yourself with the [Ranet OLAP License](https://galaktika-soft.com/ranet-olap/license). Free trial is available!
+
 ## See Also
 * [Ranet OLAP](https://galaktika-soft.com/ranet-olap)

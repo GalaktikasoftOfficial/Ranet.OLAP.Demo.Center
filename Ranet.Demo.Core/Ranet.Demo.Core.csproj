@@ -35,5 +35,12 @@
     <Resource Include="Icons\Show.png" />
     <Resource Include="Icons\Download_32x32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
   <Import Project="$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.targets" Condition="Exists('$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.targets')" />
 </Project>

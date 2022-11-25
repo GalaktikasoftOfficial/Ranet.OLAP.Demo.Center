@@ -70,7 +70,7 @@ namespace MdxDesigner {
         ///  &lt;HasChanges&gt;None&lt;/HasChanges&gt;
         ///  &lt;MDXQuery&gt;WITH 
         ///MEMBER [Internet Gross Profit Dynamic] AS IIF(
-        ///NonEmpty([Set All Month], ([Date].[Calendar].CurrentMember,[Measures].[Internet Gross Profit])).Count  [rest of string was truncated]&quot;;.
+        ///NonEmpty([Set All Month], ([Date].[Calendar].CurrentMember,[Measures].[Internet Gross Profit] [rest of string was truncated]&quot;;.
         /// </summary>
         public static string AW_Sparkline_2007year {
             get {

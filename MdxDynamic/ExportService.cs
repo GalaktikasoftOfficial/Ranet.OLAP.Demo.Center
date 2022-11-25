@@ -26,13 +26,13 @@ namespace MdxDynamic
 
 		private void ApplyMembersFilter(PivotTable pivotTable, Members_FilterWrapper membersFilter)
 		{
-			//список всех выбранных элементов и иерархий
+			//list of all selected members and hierarchies
 			List<MemberChoiceSettings> memberChoiceSettings = MemberChoiceSettings.ToList(membersFilter.SelectedInfo);
 			if (!memberChoiceSettings.Any())
 				return;
-			//список выбранных элементов для каждой иерархии
+			//list of selected members for each hierarchy
 			Dictionary<string, List<string>> selectedGroups = new Dictionary<string, List<string>>();
-			//группируем по LevelName:
+			//group by LevelName:
 			foreach (var mcc in memberChoiceSettings)
 			{
 				string levelName = mcc.Info.LevelName;
@@ -144,7 +144,7 @@ namespace MdxDynamic
 				dataPosition++;
 			}
 
-			//Применение фильтров:
+			//apply filters:
 			foreach (var hierWrapper in mdxLayoutWrapper.Filters.OfType<Filtered_AreaItemWrapper>())
 				ApplyMembersFilter(_pivotTable, hierWrapper.CompositeFilter.MembersFilter);
 			foreach (var hierWrapper in mdxLayoutWrapper.Rows.OfType<Filtered_AreaItemWrapper>())
