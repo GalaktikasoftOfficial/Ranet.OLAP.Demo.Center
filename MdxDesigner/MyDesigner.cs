@@ -65,7 +65,7 @@ namespace MdxDesigner
 				Header = "My ContextMenu Item to Cell Area for PivotGrid",
 				Icon =
 					new BitmapImage(
-						new Uri("/Ranet.Olap;component/Controls/MdxDesigner/Images/ChangeFilter.png",
+						new Uri("/Ranet.Olap;component/Controls/Images/MdxDesigner/ChangeFilter.png",
 							UriKind.Relative)),
 				Tag = MyContextMenuAction.MyContextMenuCellsItemActions
 			};

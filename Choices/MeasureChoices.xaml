@@ -8,23 +8,21 @@
                   xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
                   xmlns:zm="http://schemas.zaaml.com/xaml"
                   Loaded="MeasureChoices_OnLoaded">
-
-    <core:DemoControl.Resources>       
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+    <core:DemoControl.Resources>
+        <ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
     </core:DemoControl.Resources>
 
     <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBlock" BasedOn="{StaticResource MainTextBlock}" />
+        </Grid.Resources>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
         <!-- Choice Measures -->
         <StackPanel Grid.Row="0"  Margin="0,0,0,6" >
-            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Selected Measures:" Style="{StaticResource MainTextBlock}" />
+            <TextBlock Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="Selected Measures:" />
             <rl:MeasureChoicePopUp x:Name="MeasureChoiceControl" ApplySelectionEvent="measureChoiceControl_ApplySelectionEvent" />
             <Grid>
                 <Grid.RowDefinitions>
@@ -32,8 +30,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Margin="2,2,2,0" HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center" Text="MDX Expression (Selected Measures Result):"
-                                                   Style="{StaticResource MainTextBlock}" />
+                                                   VerticalAlignment="Center" Text="MDX Expression (Selected Measures Result):" />
                 <TextBox Grid.Row="1" Margin="2,0,2,0" HorizontalAlignment="Stretch"
                                                  VerticalAlignment="Stretch" x:Name="SelectedSetMeasure"
                                                  IsReadOnly="True" TextWrapping="Wrap" />
@@ -44,19 +41,19 @@
     </Grid>
     <core:DemoControl.Options>
         <Grid>
+            <Grid.Resources>
+                <Style TargetType="TextBlock" BasedOn="{StaticResource MainTextBlock}" />
+            </Grid.Resources>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="40"/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Vertical" Grid.Row="0">
-                <TextBlock Text="Milti select:" HorizontalAlignment="Left" Height="24" Margin="0,4,0,0"/>
-                <CheckBox x:Name="ckbMultiSelect" IsChecked="True" />
-            </StackPanel>
+            <CheckBox Grid.Row="0" x:Name="ckbMultiSelect" IsChecked="True" Content="Milti select" />
             <Button Name="ApplyOptionsButton" Grid.Row="1" Click="ApplyOptionsButton_OnClickButton" HorizontalContentAlignment="Center" Width="Auto" VerticalContentAlignment="Center" Margin="0,10,0,0">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <Image Source="/Ranet.Olap;component/Controls/Images/Initialize.png" Width="16" Height="16" />
-                        <TextBlock Margin="4,0,0,0" Text="Apply Options" Style="{StaticResource MainTextBlock}" />
+                        <TextBlock Margin="4,0,0,0" Text="Apply Options" />
                     </StackPanel>
                 </Button.Content>
             </Button>

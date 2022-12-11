@@ -83,7 +83,7 @@
             <Button Margin="2,0,2,0" x:Name="cdmCellsStyle"
                                          Width="22" Padding="0" Click="CallCommand_CellsStyleDesignerClick" >
                 <Image
-                                        Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/CellConditionsDesigner.png"
+                                        Source="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/CellConditionsDesigner.png"
                                         Width="16" Height="16" />
                 <ToolTipService.ToolTip>
                     <TextBlock
@@ -117,7 +117,7 @@
             </Button>
             <Button Margin="2,0,2,0" x:Name="cdmRefresh"
                                          Width="22" Padding="0" Click="CallCommand_RefreshClick">
-                <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/Refresh.png"
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/Refresh.png"
                                            Width="16" Height="16" />
                 <ToolTipService.ToolTip>
                     <TextBlock
@@ -130,7 +130,7 @@
 
             <Button Margin="2,0,2,0" x:Name="cdmNavigateToBegin"
                                         Width="22" Padding="0" Loaded="CdmNavigateToBegin_OnLoaded">
-                <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/ToBegin.png"
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/ToBegin.png"
                                            Width="16" Height="16" />
                 <ToolTipService.ToolTip>
                     <TextBlock
@@ -141,7 +141,7 @@
             <Button Margin="2,0,2,0" x:Name="cdmNavigateBack"
                                          Width="22" Padding="0" Loaded="CdmNavigateBack_OnLoaded">
                 <Button.Content>
-                    <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/Back.png"
+                    <Image Source="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/Back.png"
                                                Width="16" Height="16" />
                 </Button.Content>
                 <ToolTipService.ToolTip>
@@ -153,7 +153,7 @@
             <Button Margin="2,0,2,0" x:Name="cdmNavigateForward"
                                          Width="22" Padding="0" Loaded="CdmNavigateForward_OnLoaded">
                 <Button.Content>
-                    <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/Forward.png"
+                    <Image Source="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/Forward.png"
                                                Width="16" Height="16" />
                 </Button.Content>
                 <ToolTipService.ToolTip>
@@ -165,7 +165,7 @@
             <Button Margin="2,0,2,0" x:Name="cdmNavigateToEnd"
                                          Width="22" Padding="0" Loaded="CdmNavigateToEnd_OnLoaded">
                 <Button.Content>
-                    <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/ToEnd.png"
+                    <Image Source="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/ToEnd.png"
                                                Width="16" Height="16" />
                 </Button.Content>
                 <ToolTipService.ToolTip>
@@ -180,7 +180,7 @@
             <Button Margin="2,0,2,0" x:Name="cmdEmptyColumns" 
                                         Width="22" Padding="0" Click="CmdEmptyColumns_OnClick">
                 <Image
-                                        Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/HideEmptyColumns.png"
+                                        Source="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/HideEmptyColumns.png"
                                         Width="16" Height="16" />
                 <ToolTipService.ToolTip>
                     <TextBlock
@@ -191,7 +191,7 @@
 
             <Button Margin="2,0,2,0" x:Name="cmdEmptyRows"  Width="22"
                                         Padding="0" Click="CmdEmptyRows_OnClick">
-                <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/HideEmptyRows.png"
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/HideEmptyRows.png"
                                            Width="16" Height="16" />
                 <ToolTipService.ToolTip>
                     <TextBlock
@@ -202,7 +202,7 @@
 
             <Button Margin="2,0,2,0" x:Name="cmdRoateAxes"
                                         Width="22" Padding="0" Click="CallCommand_RotateAxesClick">
-                <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/RotateAxes.png"
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/RotateAxes.png"
                                            Width="16" Height="16" />
                 <ToolTipService.ToolTip>
                     <TextBlock
@@ -213,7 +213,7 @@
 
             <Button Margin="2,0,2,0" x:Name="cmdGoToFocusedCell" 
                                         Width="22" Padding="0" Click="CmdGoToFocusedCell_OnClick">
-                <Image Source="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/ToFocused.png"
+                <Image Source="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/ToFocused.png"
                                            Width="16" Height="16" />
                 <ToolTipService.ToolTip>
                     <TextBlock
@@ -288,12 +288,12 @@
                                                 Click="RunQueryAutomatic_OnClick" />
                         <zm:CheckBoxMenuItem
                                                 Header="{Binding Path=Localization.PivotGrid_HideHintsButton_Header, Source={StaticResource LocHolder}}"
-                                                Icon="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/CloseHint.png"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/CloseHint.png"
                                                 Click="HideHints_OnClick" />
                         <zm:MenuSeparator />
                         <zm:CheckBoxMenuItem
                                                 Header="{Binding Path=Localization.PivotGrid_NormalizeSize_Header, Source={StaticResource LocHolder}}"
-                                                Icon="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/NormalizeSize.png"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/NormalizeSize.png"
                                                 Click="Normalize_OnClick" />
                         <zm:MenuSeparator />
                         <zm:MenuItem
@@ -306,13 +306,13 @@
 
             <zm:SplitButton Height="22" Margin="5,0,0,0"
                             Content="{Binding Path=Localization.Actions, Source={StaticResource LocHolder}}"
-                            Icon="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/ActionNode.png" >
+                            Icon="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/ActionNode.png" >
 
                 <zm:SplitButton.PopupControl>
                     <zm:PopupMenu>
                         <zm:MenuItem
                                                 Header="{Binding Path=Localization.PivotGrid_RestoreDefaultSize_Header, Source={StaticResource LocHolder}}"
-                                                Icon="/Ranet.Olap.UI;component/Controls/PivotGrid/Images/RestoreDefaultSize.png"
+                                                Icon="/Ranet.Olap.UI;component/Controls/Images/PivotGrid/RestoreDefaultSize.png"
                                                 Click="Restore_OnClick" />
                     </zm:PopupMenu>
                 </zm:SplitButton.PopupControl>

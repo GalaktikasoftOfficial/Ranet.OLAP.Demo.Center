@@ -9,10 +9,10 @@
                   xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
                   xmlns:zm="http://schemas.zaaml.com/xaml"
                   Loaded="MemberChoices_OnLoaded">
-
     <core:DemoControl.Resources>
         <ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
     </core:DemoControl.Resources>
+
     <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
@@ -24,6 +24,9 @@
     </Grid>
     <core:DemoControl.Options>
         <Grid>
+            <Grid.Resources>
+                <Style TargetType="TextBlock" BasedOn="{StaticResource MainTextBlock}" />
+            </Grid.Resources>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="40"/>
@@ -31,14 +34,13 @@
             <StackPanel Orientation="Vertical" Grid.Row="0">
                 <TextBlock Text="Step:" HorizontalAlignment="Left" Height="24" />
                 <zm:NumericUpDown x:Name="nudStep" Minimum="1" Value="5" Width="50" HorizontalAlignment="Left" />
-                <TextBlock Text="Milti select:" HorizontalAlignment="Left" Height="24" Margin="0,4,0,0"/>
-                <CheckBox x:Name="ckbMultiSelect" IsChecked="True" />
+                <CheckBox x:Name="ckbMultiSelect" IsChecked="True" Content="Milti select" />
             </StackPanel>
             <Button Name="ApplyOptionsButton" Grid.Row="1" Click="ApplyOptionsButton_OnClickButton" HorizontalContentAlignment="Center" Width="Auto" VerticalContentAlignment="Center" Margin="0,10,0,0">
                 <Button.Content>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                         <Image Source="/Ranet.Olap;component/Controls/Images/Initialize.png" Width="16" Height="16" />
-                        <TextBlock Margin="4,0,0,0" Text="Apply Options" Style="{StaticResource MainTextBlock}" />
+                        <TextBlock Margin="4,0,0,0" Text="Apply Options" />
                     </StackPanel>
                 </Button.Content>
             </Button>

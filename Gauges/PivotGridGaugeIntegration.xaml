@@ -9,12 +9,15 @@
                   xmlns:rl="http://schemas.galaktika-soft.com/ranet/xaml"
                   xmlns:system="clr-namespace:System;assembly=mscorlib"
                   Loaded="PivotGridGaugeIntegration_OnLoaded">
-	<Grid>
-		<Grid.RowDefinitions>
-			<RowDefinition Height="*" />
-			<RowDefinition Height="*" />
-		</Grid.RowDefinitions>
-		<rl:Gauge x:Name="GaugeControl" Grid.Row="0" Height="300" MinHeight="150"
+    <core:DemoControl.Resources>
+        <ResourceDictionary Source="/Ranet.Demo.Core;component/MainTextBlockTemplate.xaml" />
+    </core:DemoControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <rl:Gauge x:Name="GaugeControl" Grid.Row="0" Height="300" MinHeight="150"
 		          rl:GaugeExtensions.GaugeSize="{zm:Static Member=rl:GaugeSize.Full }"
 		          SweepDirection="Clockwise"
 		          StartAngle="225"
@@ -26,21 +29,21 @@
 		          TickLabelStringFormat="0.#"
 		          Margin="20"
 		          RenderTransformOrigin="0.5, 0.5">
-			<rl:Gauge.Resources>
-				<system:Double x:Key="SectorThickness">20</system:Double>
-			</rl:Gauge.Resources>
-			<rl:Gauge.Sectors>
-				<rl:RoundSector x:Name="LowSector" Fill="Green" Thickness="{StaticResource SectorThickness}" />
-				<rl:RoundSector x:Name="MiddleSector" Fill="Yellow" Thickness="{StaticResource SectorThickness}" />
-				<rl:RoundSector x:Name="HighSector" Thickness="{StaticResource SectorThickness}" Fill="Red" />
-			</rl:Gauge.Sectors>
-		</rl:Gauge>
-		<zm:NativeGridSplitter Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Visibility="Visible"
+            <rl:Gauge.Resources>
+                <system:Double x:Key="SectorThickness">20</system:Double>
+            </rl:Gauge.Resources>
+            <rl:Gauge.Sectors>
+                <rl:RoundSector x:Name="LowSector" Fill="Green" Thickness="{StaticResource SectorThickness}" />
+                <rl:RoundSector x:Name="MiddleSector" Fill="Yellow" Thickness="{StaticResource SectorThickness}" />
+                <rl:RoundSector x:Name="HighSector" Thickness="{StaticResource SectorThickness}" Fill="Red" />
+            </rl:Gauge.Sectors>
+        </rl:Gauge>
+        <zm:NativeGridSplitter Grid.Row="0" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Visibility="Visible"
 		                   Margin="0,10" />
 
-		<rl:UpdateablePivotGridControl x:Name="PivotGridControl" Grid.Row="1" />
+        <rl:UpdateablePivotGridControl x:Name="PivotGridControl" Grid.Row="1" />
 
-		<TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" x:Name="QueryTextBlock" Margin="8" />
+        <TextBlock Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top" x:Name="QueryTextBlock" Margin="8"  Style="{StaticResource MainTextBlock}"/>
 
-	</Grid>
+    </Grid>
 </core:DemoControl>
