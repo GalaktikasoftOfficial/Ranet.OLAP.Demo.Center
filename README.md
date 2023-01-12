@@ -16,8 +16,8 @@ Source code corrections and new code samples are welcome.
 
 ## Quick Start
 
-* [Connection String Storage](docs/demo-configuration.md)
-* [UICulture and Theme Manager](docs/demo-culture-theme.md)
+* [Connection String Storage](Docs/demo-configuration.md)
+* [UICulture and Theme Manager](Docs/demo-culture-theme.md)
 
 
 ## Support & Feedback
