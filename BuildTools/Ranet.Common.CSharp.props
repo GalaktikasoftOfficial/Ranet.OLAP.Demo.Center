@@ -1,0 +1,14 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<Import Project="Ranet.Common.props" />
+	
+	<!-- CommonProps -->
+	<PropertyGroup>
+		<OutputPath>Bin\$(Configuration)</OutputPath>
+		<BaseIntermediateOutputPath>Obj\$(Configuration)</BaseIntermediateOutputPath>
+		<NoWarn>1591,3009, 3008, 3001, 3002, 3003, 3005, 3024, 0105, 0108, 0114, 0162, 0169, 0168, 0219, 0414, 0618, 0649, 0660, 0661, 0659, 1573, 1572, 1570, 1587, 0436, 0472</NoWarn>
+		<SignAssembly>true</SignAssembly>
+		<AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)gts.snk</AssemblyOriginatorKeyFile>		
+		<PublishDir>$(PublishDir)</PublishDir>
+		<AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+	</PropertyGroup>
+</Project>

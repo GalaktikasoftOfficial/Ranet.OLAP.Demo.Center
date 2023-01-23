@@ -1,0 +1,17 @@
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	
+	<!-- DevEnvironment -->
+	<PropertyGroup>
+		<RootDir>$([System.IO.Path]::GetFullPath($(MSBuildThisFileDirectory)..\))</RootDir>
+		<IsDevEnvironment>false</IsDevEnvironment>
+		<IsDevEnvironment Condition="Exists('$(MSBuildThisFileDirectory)DevEnvironment')">true</IsDevEnvironment>
+	</PropertyGroup>
+
+	
+	<!-- CommonProps -->
+	<PropertyGroup>
+		<PublishDir>$(RootDir)Build\</PublishDir>
+		<PublishDir Condition="'$(TF_BUILD_BINARIESDIRECTORY)' != ''">$(TF_BUILD_BINARIESDIRECTORY)</PublishDir>
+		<RanetPublishDir>$(PublishDir)</RanetPublishDir>
+	</PropertyGroup>
+</Project>
