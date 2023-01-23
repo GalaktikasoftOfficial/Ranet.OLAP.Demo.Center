@@ -12,3 +12,5 @@ private ConfigurationInfo SetDefaulSettings()
 	return configInfo;
 }
 ```
+
+D:\GitHub\Ranet.OLAP.Demo.Center\Ranet.DemoCenter\bin\Debug\net48\connectionData.json
