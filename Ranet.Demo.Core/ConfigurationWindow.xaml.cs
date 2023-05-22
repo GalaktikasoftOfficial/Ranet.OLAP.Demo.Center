@@ -97,7 +97,8 @@ namespace Ranet.Demo.Core
 				"cs-CZ",
 				"zh-CN",
 				"be",
-				"uk"
+				"uk",
+				"kk-KZ"
 			};
 			LanguagesCombo.SelectedItem = Thread.CurrentThread.CurrentUICulture.Name;
 			LanguagesCombo.SelectionChanged += LanguagesComboOnSelectionChanged;

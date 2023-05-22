@@ -9,13 +9,13 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Ranet.Olap.Core" Version="4.1.0-alpha228" />
-    <PackageReference Include="Ranet.Olap.Mdx" Version="4.1.0-alpha228" />
-    <PackageReference Include="Ranet.Olap.Themes" Version="4.1.0-alpha228" />
-    <PackageReference Include="Ranet.Olap.Service" Version="4.1.0-alpha228" />
-    <PackageReference Include="Ranet.Olap.Service.Adomd" Version="4.1.0-alpha228" />
-    <PackageReference Include="Ranet.Olap.UI" Version="4.1.0-alpha228" />
-    <PackageReference Include="Zaaml.UI" Version="0.2.1-alpha.23" />
+    <PackageReference Include="Ranet.Olap.Core" Version="4.1.0-alpha231" />
+    <PackageReference Include="Ranet.Olap.Mdx" Version="4.1.0-alpha231" />
+    <PackageReference Include="Ranet.Olap.Themes" Version="4.1.0-alpha231" />
+    <PackageReference Include="Ranet.Olap.Service" Version="4.1.0-alpha231" />
+    <PackageReference Include="Ranet.Olap.Service.Adomd" Version="4.1.0-alpha231" />
+    <PackageReference Include="Ranet.Olap.UI" Version="4.1.0-alpha231" />
+    <PackageReference Include="Zaaml.UI" Version="0.2.1-alpha.24" />
   </ItemGroup>
 
   <ItemGroup>

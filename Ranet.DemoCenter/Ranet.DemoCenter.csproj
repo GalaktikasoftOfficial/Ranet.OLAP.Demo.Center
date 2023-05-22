@@ -82,7 +82,7 @@
     <Resource Include="Icons\Ranet_White.png" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Zaaml.UI" Version="0.2.1-alpha.23" />
+    <PackageReference Include="Zaaml.UI" Version="0.2.1-alpha.24" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Ranet.Demo.Core\Ranet.Demo.Core.csproj" />
