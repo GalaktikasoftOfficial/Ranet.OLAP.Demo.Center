@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <AssemblyName>Ranet.Demo.Core</AssemblyName>
+    <IntermediateOutputPath>obj\Debug\</IntermediateOutputPath>
+    <BaseIntermediateOutputPath>obj\</BaseIntermediateOutputPath>
+    <MSBuildProjectExtensionsPath>D:\C# projects\Ranet\Ranet.Demo.Core\obj\</MSBuildProjectExtensionsPath>
+    <_TargetAssemblyProjectName>Ranet.Demo.Core</_TargetAssemblyProjectName>
+  </PropertyGroup>
+  <Import Project="Sdk.props" Sdk="Microsoft.NET.Sdk.WindowsDesktop" />
+  <Import Project="$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.props" Condition="Exists('$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.props')" />
+  <PropertyGroup>
+    <TargetFramework>net48</TargetFramework>
+    <OutputType>library</OutputType>
+    <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+    <UseWpf>true</UseWpf>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Ranet.Olap.Core" Version="4.1.0-alpha231" />
+    <PackageReference Include="Ranet.Olap.Mdx" Version="4.1.0-alpha231" />
+    <PackageReference Include="Ranet.Olap.Themes" Version="4.1.0-alpha231" />
+    <PackageReference Include="Ranet.Olap.Service" Version="4.1.0-alpha231" />
+    <PackageReference Include="Ranet.Olap.Service.Adomd" Version="4.1.0-alpha231" />
+    <PackageReference Include="Ranet.Olap.UI" Version="4.1.0-alpha231" />
+    <PackageReference Include="Zaaml.UI" Version="0.2.1-alpha.24" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.targets" Condition="Exists('$(ProjectDir)..\BuildTools\Ranet.DemoCenter.Common.CSharp.targets')" />
+  <ItemGroup>
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\closedxml\0.95.4\lib\net46\ClosedXML.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\documentformat.openxml\2.13.0\lib\net46\DocumentFormat.OpenXml.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\excelnumberformat\1.0.10\lib\net20\ExcelNumberFormat.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\log4net\2.0.12\lib\net45\log4net.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\microsoft.analysisservices.adomdclient.retail.amd64\19.22.5\lib\net45\Microsoft.AnalysisServices.AdomdClient.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\microsoft.analysisservices.retail.amd64\19.22.5\lib\net45\Microsoft.AnalysisServices.Core.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\microsoft.analysisservices.retail.amd64\19.22.5\lib\net45\Microsoft.AnalysisServices.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\microsoft.analysisservices.retail.amd64\19.22.5\lib\net45\Microsoft.AnalysisServices.SPClient.Interfaces.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\microsoft.analysisservices.retail.amd64\19.22.5\lib\net45\Microsoft.AnalysisServices.Tabular.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\microsoft.analysisservices.retail.amd64\19.22.5\lib\net45\Microsoft.AnalysisServices.Tabular.Json.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Microsoft.CSharp.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\mscorlib.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\newtonsoft.json\13.0.1\lib\net45\Newtonsoft.Json.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationCore.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\PresentationFramework.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\ranet.olap.core\4.1.0-alpha231\lib\netstandard2.0\Ranet.Olap.Core.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\ranet.olap.mdx\4.1.0-alpha231\lib\netstandard2.0\Ranet.Olap.Mdx.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\ranet.olap.service.adomd\4.1.0-alpha231\lib\net48\Ranet.Olap.Service.Adomd.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\ranet.olap.service\4.1.0-alpha231\lib\net48\Ranet.Olap.Service.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\ranet.olap.themes\4.1.0-alpha231\lib\net48\Ranet.Olap.Themes.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\ranet.olap.ui\4.1.0-alpha231\lib\net48\Ranet.Olap.UI.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\ranet.ziplib\1.0.1\lib\net35\Ranet.ZipLib.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\system.buffers\4.5.1\ref\net45\System.Buffers.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\system.componentmodel.annotations\4.7.0\ref\net461\System.ComponentModel.Annotations.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.ComponentModel.DataAnnotations.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Configuration.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Core.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.DataSetExtensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Data.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Drawing.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.IO.Compression.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.IO.Compression.FileSystem.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\system.memory\4.5.4\lib\net461\System.Memory.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Numerics.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\system.numerics.vectors\4.5.0\ref\net46\System.Numerics.Vectors.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\system.runtime.compilerservices.unsafe\4.5.3\ref\net461\System.Runtime.CompilerServices.Unsafe.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Runtime.Serialization.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Runtime.Serialization.Formatters.Soap.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.ServiceModel.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.ServiceModel.Web.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Web.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Web.Extensions.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Web.Services.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Windows.Controls.Ribbon.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xaml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\System.Xml.Linq.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\UIAutomationClient.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\UIAutomationClientsideProviders.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\UIAutomationProvider.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\UIAutomationTypes.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\WindowsBase.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\zaaml.core\0.2.1-alpha.24\lib\net48\Zaaml.Core.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\zaaml.expressions\0.2.1-alpha.24\lib\net48\Zaaml.Expressions.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\zaaml.platform\0.2.1-alpha.24\lib\net48\Zaaml.Platform.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\zaaml.presentationcore\0.2.1-alpha.24\lib\net48\Zaaml.PresentationCore.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\zaaml.text\0.2.1-alpha.24\lib\net48\Zaaml.Text.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\zaaml.themes.metro\0.2.1-alpha.24\lib\net48\Zaaml.Themes.Metro.dll" />
+    <ReferencePath Include="C:\Users\Lenovo\.nuget\packages\zaaml.ui\0.2.1-alpha.24\lib\net48\Zaaml.UI.dll" />
+    <ReferencePath Include="C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.8\Facades\netstandard.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="D:\C# projects\Ranet\Ranet.Demo.Core\obj\Debug\net48\ButtonGroupControl.g.cs" />
+    <Compile Include="D:\C# projects\Ranet\Ranet.Demo.Core\obj\Debug\net48\ConfigurationWindow.g.cs" />
+    <Compile Include="D:\C# projects\Ranet\Ranet.Demo.Core\obj\Debug\net48\ConnectionEditorControl.g.cs" />
+    <Compile Include="D:\C# projects\Ranet\Ranet.Demo.Core\obj\Debug\net48\ConnectionListControl.g.cs" />
+    <Compile Include="D:\C# projects\Ranet\Ranet.Demo.Core\obj\Debug\net48\SourceOptionsControl.g.cs" />
+    <Compile Include="D:\C# projects\Ranet\Ranet.Demo.Core\obj\Debug\net48\SourceViewerControl.g.cs" />
+    <Compile Include="D:\C# projects\Ranet\Ranet.Demo.Core\obj\Debug\net48\TreeViewDemo.g.cs" />
+    <Compile Include="D:\C# projects\Ranet\Ranet.Demo.Core\obj\Debug\net48\GeneratedInternalTypeHelper.g.cs" />
+  </ItemGroup>
+  <Import Project="Sdk.targets" Sdk="Microsoft.NET.Sdk.WindowsDesktop" />
+</Project>

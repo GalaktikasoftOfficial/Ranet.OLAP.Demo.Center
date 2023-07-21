@@ -15,7 +15,7 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 
-    <net:DemoHeaderControl Grid.Row="0" TreeViewDemo="{Binding ElementName=treeViewDemo, BindsDirectlyToSource=True}"/>
+    <net:DemoHeaderControl Grid.Row="0" TreeViewDemo="{Binding ElementName=treeViewDemo, BindsDirectlyToSource=True}" Loaded="DemoHeaderControl_Loaded"/>
 		<core:TreeViewDemo x:Name="treeViewDemo" Grid.Row="1" />
 		
 	</Grid>
