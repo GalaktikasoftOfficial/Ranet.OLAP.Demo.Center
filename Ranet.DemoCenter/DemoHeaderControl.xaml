@@ -198,7 +198,7 @@
 			</RadioButton>
 
 			<!-- CODE button -->
-			<RadioButton Style="{StaticResource SettingsSpanButton}" Padding="10,0" IsChecked="{Binding Path=ShowSource, ElementName=demoHeaderControl, Mode=TwoWay}">
+			<!--<RadioButton Style="{StaticResource SettingsSpanButton}" Padding="10,0" IsChecked="{Binding Path=ShowSource, ElementName=demoHeaderControl, Mode=TwoWay}">
 				<RadioButton.Content>
 					<StackPanel Orientation="Horizontal">
 						<Viewbox Width="32" Height="32">
@@ -213,7 +213,7 @@
 				<ToolTipService.ToolTip>
 					<TextBlock Text="View source code examples" TextWrapping="Wrap" />
 				</ToolTipService.ToolTip>
-			</RadioButton>
+			</RadioButton>-->
 
 			<!-- OPTIONS button -->
 			<ToggleButton Style="{StaticResource SettingsSpanButton}" Padding="10,0" IsChecked="{Binding Path=ActualDemoControl.ShowOptions, ElementName=demoHeaderControl, Mode=TwoWay}">
